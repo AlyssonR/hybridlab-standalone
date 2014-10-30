@@ -1,0 +1,33 @@
+# Linux
+.*
+!.gitignore
+*~
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse Specific #
+.classpath
+.project
+.settings
+.springBeans
+target
