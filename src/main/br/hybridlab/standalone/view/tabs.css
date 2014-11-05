@@ -8,7 +8,7 @@
 
 }
 
-.label {
+.labelTexto {
     -fx-font-size: 12pt;
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -fx-text-fill: #000000;
@@ -18,4 +18,5 @@
     -fx-background-image: url("img/add-button.png");
     -fx-background-size: 30 30;
     -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
 }
