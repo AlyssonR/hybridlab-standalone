@@ -46,7 +46,8 @@ public abstract class GenericDAO<T> {
     public void delete(Object id) {
         Session session = sessionFactory.getCurrentSession();
 //        Transaction transaction = session.beginTransaction();
-        session.delete(session.get(type, (Serializable) id));
+        Object obj = session.get(type, (Serializable) id);
+        session.delete(obj);
 //        transaction.commit();
     }
 
