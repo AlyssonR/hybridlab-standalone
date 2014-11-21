@@ -16,7 +16,7 @@
       <Pane prefHeight="139.0" prefWidth="1146.0" styleClass="background" stylesheets="@topPane.css">
          <children>
             <AnchorPane layoutX="124.0" layoutY="34.0" />
-            <ImageView fitHeight="77.0" fitWidth="420.0" layoutX="363.0" layoutY="27.0">
+            <ImageView id="imgHybridlabLogo" fitHeight="77.0" fitWidth="420.0" layoutX="363.0" layoutY="27.0">
                <image>
                   <Image url="@../../../../../../../hybridlab/hybridlab/static/core/bootstrap-3.2.0-dist/img/logo_vetor.png" />
                </image>
@@ -27,9 +27,14 @@
          <children>
             <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1146.0" stylesheets="@tabs.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-151.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <tabs>
-                <Tab text="Iniciar Simulação">
+                <Tab id="tabSimulationInit" text="Iniciar Simulação">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background" stylesheets="@tabs.css">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background" stylesheets="@tabs.css" />
+                  </content>
+                </Tab>
+                <Tab id="tabSimulationHistory" text="Histórico de Simulações">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="970.0">
                            <children>
                               <AnchorPane prefHeight="621.0" prefWidth="1146.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
@@ -37,24 +42,24 @@
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="291.0" layoutX="-1.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1146.0" />
                                     <TableView layoutX="51.0" layoutY="408.0" prefHeight="188.0" prefWidth="736.0">
                                       <columns>
-                                        <TableColumn prefWidth="115.0" text="ID Ensaio" />
-                                        <TableColumn prefWidth="193.0" text="Modelo do Carro" />
-                                          <TableColumn prefWidth="195.0" text="Perda de Potencia (%)" />
-                                          <TableColumn minWidth="0.0" prefWidth="126.0" text="Angulacao (º)" />
-                                          <TableColumn prefWidth="105.0" text="Duraçao (s)" />
+                                        <TableColumn id="tableExperimentID" prefWidth="115.0" text="ID Ensaio" />
+                                        <TableColumn id="tableExperimentCarModel" prefWidth="193.0" text="Modelo do Carro" />
+                                          <TableColumn id="tableExperimentPowerLoss" prefWidth="195.0" text="Perda de Potência (%)" />
+                                          <TableColumn id="tableExperimentInclination" minWidth="0.0" prefWidth="126.0" text="Angulação (º)" />
+                                          <TableColumn id="tableExperimentDuration" prefWidth="105.0" text="Duração (s)" />
                                       </columns>
                                     </TableView>
-                                    <Label layoutX="455.0" layoutY="14.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇAO 001">
+                                    <Label id="labelValueSImulationID" layoutX="455.0" layoutY="14.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇÃO 001">
                                        <font>
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="301.0" layoutY="366.0" prefHeight="42.0" prefWidth="216.0" text="Parametros do Ensaio">
+                                    <Label id="labelExperimentValues" layoutX="301.0" layoutY="366.0" prefHeight="42.0" prefWidth="216.0" text="Parametros do Ensaio">
                                        <font>
                                           <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <LineChart layoutX="91.0" layoutY="101.0" prefHeight="215.0" prefWidth="430.0">
+                                    <LineChart id="graphTension" layoutX="91.0" layoutY="101.0" prefHeight="215.0" prefWidth="430.0">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" />
                                       </xAxis>
@@ -62,7 +67,7 @@
                                         <NumberAxis side="LEFT" />
                                       </yAxis>
                                     </LineChart>
-                                    <LineChart layoutX="666.0" layoutY="103.0" prefHeight="215.0" prefWidth="420.0">
+                                    <LineChart id="graphComsuption" layoutX="666.0" layoutY="103.0" prefHeight="215.0" prefWidth="420.0">
                                        <xAxis>
                                           <CategoryAxis side="BOTTOM" />
                                        </xAxis>
@@ -70,31 +75,25 @@
                                           <NumberAxis side="LEFT" />
                                        </yAxis>
                                     </LineChart>
-                                    <Text layoutX="442.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo (s)" />
-                                    <Text layoutX="1007.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo (s)" />
-                                    <Text layoutX="18.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Corrente (A)" />
-                                    <Text layoutX="577.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consumo (mL)" />
-                                    <Text layoutX="257.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Variaçao de Corrente" />
-                                    <Text layoutX="826.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Variaçao de Consumo" />
-                                    <Label layoutX="896.0" layoutY="368.0" prefHeight="39.0" prefWidth="168.0" text="Configuracao do ">
+                                    <Text id="labelTensionTimeXAxis" layoutX="442.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo (s)" />
+                                    <Text id="labelConsumptionTImeXAxis" layoutX="1007.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo (s)" />
+                                    <Text id="labelTensionYAxis" layoutX="18.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Corrente (A)" />
+                                    <Text id="labelConsumptionYAxis" layoutX="577.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consumo (mL)" />
+                                    <Text id="labelTensionGraphTitle" layoutX="257.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Variação de Corrente" />
+                                    <Text id="labelConsumptionGraphTitle" layoutX="826.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Variação de Consumo" />
+                                    <Label id="labelBulbConfigurationPt1" layoutX="896.0" layoutY="368.0" prefHeight="39.0" prefWidth="168.0" text="Configuração do ">
                                        <font>
                                           <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="880.0" layoutY="390.0" prefHeight="39.0" prefWidth="209.0" text="Banco de Lampadas">
+                                    <Label id="labelBulbConfigurationPt2" layoutX="880.0" layoutY="390.0" prefHeight="39.0" prefWidth="209.0" text="Banco de Lampadas">
                                        <font>
                                           <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                <Tab text="Histórico de Simulações">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="970.0" />
+                           </children></AnchorPane>
                   </content>
                 </Tab>
               </tabs>
