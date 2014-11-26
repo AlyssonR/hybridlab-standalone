@@ -45,10 +45,10 @@ public abstract class GenericDAO<T> {
 
     public void delete(Object id) {
         Session session = sessionFactory.getCurrentSession();
-//        Transaction transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         Object obj = session.get(type, (Serializable) id);
         session.delete(obj);
-//        transaction.commit();
+        transaction.commit();
     }
 
     public T getBy(Object id) {
@@ -63,6 +63,7 @@ public abstract class GenericDAO<T> {
         Session session = sessionFactory.getCurrentSession();
         Transaction transaction = session.beginTransaction();
         List<T> objs = session.createCriteria(type).list();
+        transaction.commit();
         return objs;
     }
 }
