@@ -26,7 +26,7 @@ public class HybridLab extends Application {
         communicationService = new CommunicationService();
         communicationService.initialize();
         String temp = System.getProperty("java.class.path");
-        URL resource = getClass().getResource("br/hybridlab/standalone/view/pagina_inicial.fxml");
+        URL resource = getClass().getResource("/pagina_inicial.fxml");
 
         Parent root = FXMLLoader.load(resource);
 
