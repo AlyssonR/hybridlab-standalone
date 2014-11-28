@@ -1,19 +1,14 @@
 package br.hybridlab.standalone;
 
-import java.io.IOException;
-import java.util.List;
-
 import br.hybridlab.standalone.dao.CarDAO;
-import br.hybridlab.standalone.model.Car;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
+
+import java.net.URL;
 
 public class HybridLab extends Application {
 
@@ -23,11 +18,6 @@ public class HybridLab extends Application {
     private static CarDAO carDAO = new CarDAO();
 
     public static void main(String[] args) throws Exception {
-        HibernateUtil.getSessionFactory();
-        List<Car> persistedCars = carDAO.get();
-        carDAO.delete(persistedCars.get(0).getId());
-        System.out.println(persistedCars.get(0).getModel()+" deleted!");
-
         launch();
     }
 
@@ -35,28 +25,38 @@ public class HybridLab extends Application {
     public void start(Stage stage) throws Exception {
         communicationService = new CommunicationService();
         communicationService.initialize();
-        AnchorPane pane = new AnchorPane();
-        pane.setPrefSize(400, 300);
-        Scene scene = new Scene(pane);
-        stage.setScene(scene);
-        TextField outputField = new TextField();
-        outputField.setPromptText("data from Arduino...");
-        outputField.setLayoutX((pane.getWidth() - outputField.getWidth()) / 2);
-        outputField.setLayoutY(100);
-        Button getBtn = new Button();
-        pane.getChildren().addAll(outputField, getBtn);
+        String temp = System.getProperty("java.class.path");
+        URL resource = getClass().getResource("br/hybridlab/standalone/view/pagina_inicial.fxml");
 
-        getBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                try {
-                    String inputLine = communicationService.getInput().readLine();
-                    outputField.setText(inputLine);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
+        Parent root = FXMLLoader.load(resource);
+
+        Scene scene = new Scene(root, 300, 275);
+
+        stage.setTitle("HybridLab");
+        stage.setScene(scene);
+
+//        AnchorPane pane = new AnchorPane();
+//        pane.setPrefSize(400, 300);
+//        Scene scene = new Scene(pane);
+//        stage.setScene(scene);
+//        TextField outputField = new TextField();
+//        outputField.setPromptText("data from Arduino...");
+//        outputField.setLayoutX((pane.getWidth() - outputField.getWidth()) / 2);
+//        outputField.setLayoutY(100);
+//        Button getBtn = new Button();
+//        pane.getChildren().addAll(outputField, getBtn);
+//
+//        getBtn.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent e) {
+//                try {
+//                    String inputLine = communicationService.getInput().readLine();
+//                    outputField.setText(inputLine);
+//                } catch (IOException e1) {
+//                    e1.printStackTrace();
+//                }
+//            }
+//        });
         stage.show();
     }
 }
