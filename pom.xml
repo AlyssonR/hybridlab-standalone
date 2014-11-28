@@ -9,6 +9,15 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <build>
+        <finalName>HybridLab</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java/br/hybridlab/standalone/view</directory>
+            </resource>
+        </resources>
+    </build>
+
     <dependencies>
 
         <!-- Hibernate -->
