@@ -16,9 +16,9 @@
       <Pane prefHeight="139.0" prefWidth="1146.0" styleClass="background" stylesheets="@topPane.css">
          <children>
             <AnchorPane layoutX="124.0" layoutY="34.0" />
-            <ImageView id="imgHybridlabLogo" fitHeight="77.0" fitWidth="420.0" layoutX="363.0" layoutY="27.0">
+            <ImageView id="logoHybridLab" fitHeight="88.0" fitWidth="568.0" layoutX="289.0" layoutY="26.0">
                <image>
-                  <Image url="@../../../../../../../../hybridlab/hybridlab/static/core/bootstrap-3.2.0-dist/img/logo_vetor.png" />
+                  <Image url="@img/logo_vetor.png" />
                </image>
             </ImageView>
          </children>
@@ -34,16 +34,17 @@
                               <AnchorPane prefHeight="621.0" prefWidth="1146.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="617.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1146.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="252.0" layoutX="-1.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1146.0" />
-                                    <TableView layoutX="195.0" layoutY="342.0" prefHeight="188.0" prefWidth="793.0">
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="252.0" layoutX="130.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="869.0" />
+                                    <TableView layoutX="130.0" layoutY="317.0" prefHeight="188.0" prefWidth="871.0">
                                       <columns>
-                                        <TableColumn id="tableExperimentCarModel" prefWidth="168.0" text="Carro" />
-                                        <TableColumn id="tableExperimentTypeInput" prefWidth="196.0" text="Tipo de Entrada" />
-                                          <TableColumn id="tableExperimentInputValue" prefWidth="253.0" text="Valor da Entrada" />
-                                          <TableColumn id="tableExperimentDuration" minWidth="0.0" prefWidth="175.0" text="Duração" />
+                                          <TableColumn id="tableExperimentID" prefWidth="120.0" text="ID Ensaio" />
+                                        <TableColumn id="tableExperimentCarModel" prefWidth="206.0" text="Carro" />
+                                        <TableColumn id="tableExperimentTypeInput" prefWidth="203.0" text="Tipo de Entrada" />
+                                          <TableColumn id="tableExperimentInputValue" prefWidth="205.0" text="Valor da Entrada" />
+                                          <TableColumn id="tableExperimentDuration" maxWidth="4500.0" minWidth="0.0" prefWidth="136.0" text="Duração" />
                                       </columns>
                                     </TableView>
-                                    <Button id="buttonInitSImulation" layoutX="485.0" layoutY="552.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Iniciar Simulação">
+                                    <Button id="buttonInitSImulation" layoutX="485.0" layoutY="537.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Iniciar Simulação">
                                        <font>
                                           <Font name="System Bold" size="17.0" />
                                        </font>
@@ -58,47 +59,47 @@
                                           <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton id="labelExperimentInclination" layoutX="408.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
+                                  <fx:define>
+                                      <ToggleGroup fx:id="inputTypeRadioGroup"/>
+                                  </fx:define>
+
+                                    <RadioButton id="labelExperimentInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </RadioButton>
-                                    <RadioButton id="labelExperimentPowerLoss" layoutX="408.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
+                                    <RadioButton id="labelExperimentPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </RadioButton>
-                                    <TextField layoutX="607.0" layoutY="167.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
-                                    <Text id="labelExperimentTypeInput" layoutX="406.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
+
+
+                                    <TextField layoutX="778.0" layoutY="167.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                    <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <TextField disable="true" layoutX="607.0" layoutY="200.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
-                                    <Text id="labelExperimentCarModel" layoutX="69.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="177.48681640625">
+                                    <TextField disable="true" layoutX="778.0" layoutY="200.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                    <Text id="labelExperimentCarModel" layoutX="207.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="177.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <ComboBox id="comboExperimentCarModel" layoutX="71.0" layoutY="150.0" prefHeight="25.0" prefWidth="228.0" />
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="111.0" layoutX="73.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="226.0" />
-                                    <Text id="labelMass" layoutX="80.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
-                                    <Text id="labelPower" layoutX="79.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
-                                    <Text id="labelDragCOefficient" layoutX="78.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
-                                    <Text id="txValueMass" fx:id="valor_massa" layoutX="131.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="890 kg" wrappingWidth="61.7294921875" />
-                                    <Text id="txValuePower" fx:id="valor_potencia" layoutX="147.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="54000 RPM" wrappingWidth="79.7294921875" />
-                                    <Text id="txValueDragCoefficient" fx:id="valor_coeficienteaero" layoutX="255.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,35" wrappingWidth="35.7294921875" />
-                                    <Text id="labelFrontalArea" layoutX="78.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
-                                    <Text id="txValueFrontalArea" fx:id="valor_areafrontal" layoutX="166.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2,06" wrappingWidth="35.7294921875" />
-                                    <Text id="labelSpeed" layoutX="77.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocidade:" wrappingWidth="89.7294921875" />
-                                    <Text id="txValueSpeed" fx:id="valor_velocidade" layoutX="160.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22" wrappingWidth="21.7294921875" />
-                                    <Text id="labelExperimentDuration" layoutX="807.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Duração:" wrappingWidth="76.48681640625">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Text>
-                                    <ComboBox id="comboExperimentDuration" layoutX="887.0" layoutY="175.0" prefHeight="25.0" prefWidth="72.0" />
-                                    <Button id="buttonAddExperiment" layoutX="883.0" layoutY="267.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="197.0" text="Adicionar Ensaio">
+                                    <ComboBox id="comboExperimentCarModel" layoutX="209.0" layoutY="150.0" prefHeight="25.0" prefWidth="228.0" />
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="111.0" layoutX="211.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="226.0" />
+                                    <Text id="labelMass" layoutX="218.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
+                                    <Text id="labelPower" layoutX="217.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
+                                    <Text id="labelDragCOefficient" layoutX="216.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
+                                    <Text id="txValueMass" fx:id="valor_massa" layoutX="276.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="890 kg" wrappingWidth="61.7294921875" />
+                                    <Text id="txValuePower" fx:id="valor_potencia" layoutX="285.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="54000 RPM" wrappingWidth="79.7294921875" />
+                                    <Text id="txValueDragCoefficient" fx:id="valor_coeficienteaero" layoutX="393.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,35" wrappingWidth="35.7294921875" />
+                                    <Text id="labelFrontalArea" layoutX="216.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
+                                    <Text id="txValueFrontalArea" fx:id="valor_areafrontal" layoutX="304.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2,06" wrappingWidth="35.7294921875" />
+                                    <Text id="labelSpeed" layoutX="215.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocidade:" wrappingWidth="89.7294921875" />
+                                    <Text id="txValueSpeed" fx:id="valor_velocidade" layoutX="298.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22" wrappingWidth="21.7294921875" />
+                                    <Button id="buttonAddExperiment" layoutX="777.0" layoutY="267.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="197.0" text="Adicionar Ensaio">
                                        <font>
                                           <Font size="17.0" />
                                        </font>
@@ -111,7 +112,22 @@
                 </Tab>
                 <Tab id="tabSimulationHistory" text="Histórico de Simulações">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="970.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="970.0">
+                           <children>
+                              <Label id="labelSImulationHistory" layoutX="397.0" layoutY="14.0" prefHeight="42.0" prefWidth="328.0" text="Historico de Simulações">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TableView layoutX="216.0" layoutY="63.0" prefHeight="472.0" prefWidth="712.0">
+                                 <columns>
+                                    <TableColumn id="tableSimulationID" prefWidth="121.0" text="ID Simuação" />
+                                    <TableColumn id="tableNumberOfExperiments" prefWidth="151.0" text="Qtd de Ensaios" />
+                                    <TableColumn id="tableExperimentHorurAndDate" prefWidth="196.0" text="Data / Hora" />
+                                    <TableColumn id="tableExperimentCarModel" prefWidth="243.0" text="Modelo do Carro" />
+                                 </columns>
+                              </TableView>
+                           </children></AnchorPane>
                   </content>
                 </Tab>
               </tabs>

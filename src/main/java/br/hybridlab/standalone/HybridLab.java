@@ -31,7 +31,7 @@ public class HybridLab extends Application {
 
         Parent root = FXMLLoader.load(resource);
 
-        Scene scene = new Scene(root, 300, 275);
+        Scene scene = new Scene(root, 1146, 796);
 
         stage.setTitle("HybridLab");
         stage.setScene(scene);
