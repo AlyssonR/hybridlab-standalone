@@ -59,7 +59,6 @@
                                                         <Font name="System Bold" size="17.0" />
                                                     </font>
                                                 </Label>
-                                                <!--
                                                   <fx:define>
                                                       <ToggleGroup fx:id="inputTypeRadioGroup"/>
                                                   </fx:define>
@@ -74,17 +73,16 @@
                                                           <Font size="14.0" />
                                                        </font>
                                                     </RadioButton>
-                                                 -->
-                                                <RadioButton id="labelExperimentInclination" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
-                                                <RadioButton id="labelExperimentPowerLoss" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
+                                                <!--<RadioButton id="labelExperimentInclination" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
+                                                <!--<RadioButton id="labelExperimentPowerLoss" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
 
                                                 <TextField id="inputExperimentInclination" layoutX="778.0" layoutY="167.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
                                                 <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
@@ -103,13 +101,13 @@
                                                 <Text id="labelMass" layoutX="218.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
                                                 <Text id="labelPower" layoutX="217.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
                                                 <Text id="labelDragCOefficient" layoutX="216.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
-                                                <Text id="txValueMass" fx:id="valor_massa" layoutX="276.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="890 kg" wrappingWidth="61.7294921875" />
-                                                <Text id="txValuePower" fx:id="valor_potencia" layoutX="285.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="54000 RPM" wrappingWidth="79.7294921875" />
-                                                <Text id="txValueDragCoefficient" fx:id="valor_coeficienteaero" layoutX="393.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,35" wrappingWidth="35.7294921875" />
+                                                <Text id="txValueMass" fx:id="txValueMass" layoutX="276.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="890 kg" wrappingWidth="61.7294921875" />
+                                                <Text id="txValuePower" fx:id="txValuePower" layoutX="285.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="54000 RPM" wrappingWidth="79.7294921875" />
+                                                <Text id="txValueDragCoefficient" fx:id="txValueDragCoefficient" layoutX="393.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,35" wrappingWidth="35.7294921875" />
                                                 <Text id="labelFrontalArea" layoutX="216.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
-                                                <Text id="txValueFrontalArea" fx:id="valor_areafrontal" layoutX="304.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2,06" wrappingWidth="35.7294921875" />
+                                                <Text id="txValueFrontalArea" fx:id="txValueFrontalArea" layoutX="304.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2,06" wrappingWidth="35.7294921875" />
                                                 <Text id="labelSpeed" layoutX="215.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocidade:" wrappingWidth="89.7294921875" />
-                                                <Text id="txValueSpeed" fx:id="valor_velocidade" layoutX="298.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22" wrappingWidth="21.7294921875" />
+                                                <Text id="txValueSpeed" fx:id="txValueSpeed" layoutX="298.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22" wrappingWidth="21.7294921875" />
                                                 <Button id="buttonAddExperiment" layoutX="777.0" layoutY="267.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="197.0" text="Adicionar Ensaio">
                                                     <font>
                                                         <Font size="17.0" />
