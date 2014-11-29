@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="796.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="br.hybridlab.standalone.controller.Controller" prefHeight="796.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Pane prefHeight="139.0" prefWidth="1146.0" styleClass="background" stylesheets="@topPane.css">
             <children>
@@ -98,7 +98,7 @@
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Text>
-                                                <ComboBox id="comboExperimentCarModel" layoutX="209.0" layoutY="150.0" prefHeight="25.0" prefWidth="228.0" />
+                                                <ComboBox fx:id="comboExperimentCarModel" layoutX="209.0" layoutY="150.0" prefHeight="25.0" prefWidth="228.0" />
                                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="111.0" layoutX="211.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="226.0" />
                                                 <Text id="labelMass" layoutX="218.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
                                                 <Text id="labelPower" layoutX="217.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
