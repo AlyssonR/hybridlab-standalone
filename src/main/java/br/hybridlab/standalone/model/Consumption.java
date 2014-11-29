@@ -18,20 +18,15 @@ public class Consumption {
     @JoinColumn(name = "fk_simulation_id")
     private Simulation simulation;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_experiment_id")
-    private Experiment experiment;
-
     private Double value;
 
     private Date time;
 
     public Consumption() {}
 
-    public Consumption(Long id, Simulation simulation, Experiment experiment, Double value, Date time) {
+    public Consumption(Long id, Simulation simulation, Double value, Date time) {
         this.id = id;
         this.simulation = simulation;
-        this.experiment = experiment;
         this.value = value;
         this.time = time;
     }
@@ -51,14 +46,6 @@ public class Consumption {
 
     public void setSimulation(Simulation simulation) {
         this.simulation = simulation;
-    }
-
-    public Experiment getExperiment() {
-        return experiment;
-    }
-
-    public void setExperiment(Experiment experiment) {
-        this.experiment = experiment;
     }
 
     public Double getValue() {

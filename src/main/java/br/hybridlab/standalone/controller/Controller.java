@@ -75,8 +75,7 @@ public class Controller {
             }
         });
 
-        //
-
+        //radio buttons behavior
         inputTypeRadioGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
