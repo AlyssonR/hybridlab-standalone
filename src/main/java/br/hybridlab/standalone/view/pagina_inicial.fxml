@@ -96,16 +96,16 @@
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Text>
-                                                <ComboBox fx:id="comboExperimentCarModel" layoutX="209.0" layoutY="150.0" prefHeight="25.0" prefWidth="228.0" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="211.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="226.0" />
+                                                <ComboBox fx:id="comboExperimentCarModel" layoutX="209.0" layoutY="150.0" prefHeight="25.0" prefWidth="271.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="210.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="270.0" />
                                                 <Text id="labelMass" layoutX="218.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
                                                 <Text id="labelPower" layoutX="217.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
                                                 <Text id="labelDragCOefficient" layoutX="216.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
-                                                <Text id="txValueMass" fx:id="txValueMass" layoutX="276.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="61.7294921875" />
-                                                <Text id="txValuePower" fx:id="txValuePower" layoutX="285.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="79.7294921875" />
-                                                <Text id="txValueDragCoefficient" fx:id="txValueDragCoefficient" layoutX="393.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="35.7294921875" />
+                                                <Text id="txValueMass" fx:id="txValueMass" layoutX="276.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="202.7294921875" />
+                                                <Text id="txValuePower" fx:id="txValuePower" layoutX="285.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="194.7294921875" />
+                                                <Text id="txValueDragCoefficient" fx:id="txValueDragCoefficient" layoutX="393.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="86.7294921875" />
                                                 <Text id="labelFrontalArea" layoutX="216.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
-                                                <Text id="txValueFrontalArea" fx:id="txValueFrontalArea" layoutX="304.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="35.7294921875" />
+                                                <Text id="txValueFrontalArea" fx:id="txValueFrontalArea" layoutX="304.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="128.7294921875" />
                                                 <Button id="buttonAddExperiment" fx:id="buttonAddExperiment" layoutX="777.0" layoutY="267.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="197.0" text="Adicionar Ensaio">
                                                     <font>
                                                         <Font size="17.0" />
