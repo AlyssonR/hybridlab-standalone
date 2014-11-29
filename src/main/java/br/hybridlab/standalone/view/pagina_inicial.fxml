@@ -46,40 +46,40 @@
                                                     </font>
                                                 </Label>
 
-                                                <!--
+
                                                 <fx:define>
                                                       <ToggleGroup fx:id="inputTypeRadioGroup"/>
                                                   </fx:define>
 
-                                                    <RadioButton id="labelExperimentInclination" fx:id="radioInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
+                                                    <RadioButton id="labelExperimentInclination" fx:id="radioInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
                                                        <font>
                                                           <Font size="14.0" />
                                                        </font>
                                                     </RadioButton>
-                                                    <RadioButton id="labelExperimentPowerLoss" fx:id="radioPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
+                                                    <RadioButton id="labelExperimentPowerLoss" fx:id="radioPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
                                                        <font>
                                                           <Font size="14.0" />
                                                        </font>
                                                     </RadioButton>
-                                                -->
-                                                <RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
-                                                <RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
 
-                                                <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="778.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
-                                                <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
+                                                <!--<RadioButton id="radioInclination" fx:id="radioInclination" layoutX="577.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
+                                                <!--<RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="577.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
+
+                                                <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="780.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                                <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Text>
-                                                <TextField id="textFieldPowerLossValue" fx:id="textFieldPowerLossValue" disable="true" layoutX="778.0" layoutY="294.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                                <TextField id="textFieldPowerLossValue" fx:id="textFieldPowerLossValue" disable="true" layoutX="780.0" layoutY="294.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
                                                 <Text id="labelExperimentCarModel" layoutX="207.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="177.48681640625">
                                                     <font>
                                                         <Font size="14.0" />
@@ -109,31 +109,31 @@
                                  <children>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="617.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1146.0" />
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="554.0" layoutX="2.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1146.0" />
-                                    <Label id="labelValueSImulationID" layoutX="455.0" layoutY="21.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇÃO 001">
+                                    <Label id="ST_SimulationIDValue" fx:id="ST_SimulationIDValue" layoutX="455.0" layoutY="21.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇÃO 001">
                                        <font>
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
-                                    <Text id="labelExperimentCarModel" layoutX="207.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="177.48681640625">
+                                    <Text id="ST_SImulationCarModel" fx:id="ST_SImulationCarModel" layoutX="207.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="142.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="207.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="270.0" />
-                                    <Text id="labelMass" layoutX="215.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
-                                    <Text id="labelPower" layoutX="214.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
-                                    <Text id="labelDragCOefficient" layoutX="213.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
-                                    <Text id="txValueMass" fx:id="txValueMass1" layoutX="273.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="202.7294921875" />
-                                    <Text id="txValuePower" fx:id="txValuePower1" layoutX="282.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="194.7294921875" />
-                                    <Text id="txValueDragCoefficient" fx:id="txValueDragCoefficient1" layoutX="390.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="86.7294921875" />
-                                    <Text id="labelFrontalArea" layoutX="213.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
-                                    <Text id="txValueFrontalArea" fx:id="txValueFrontalArea1" layoutX="301.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="128.7294921875" />
-                                    <Text id="labelExperimentCarModel" layoutX="521.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Angulação (º):" wrappingWidth="177.48681640625">
+                                    <Text id="ST_SImulationLabelMass" fx:id="ST_SImulationLabelMass" layoutX="215.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
+                                    <Text id="ST_SImulationPowerLabel" fx:id="ST_SImulationPowerLabel" layoutX="214.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
+                                    <Text id="ST_SImulationDragCoefficientLabel" fx:id="ST_SImulationDragCoefficientLabel" layoutX="213.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
+                                    <Text id="ST_SImulationMassValue" fx:id="ST_SImulationMassValue" layoutX="273.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="202.7294921875" />
+                                    <Text id="ST_SImulationPowerValue" fx:id="ST_SImulationPowerValue" layoutX="282.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="194.7294921875" />
+                                    <Text id="ST_SImulationDragCoefficientValue" fx:id="ST_SImulationDragCoefficientValue" layoutX="390.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="86.7294921875" />
+                                    <Text id="ST_SImulationFrontalAreaLabel" fx:id="ST_SImulationFrontalAreaLabel" layoutX="213.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
+                                    <Text id="ST_SImulationFrontalAreaValue" fx:id="ST_SImulationFrontalAreaValue" layoutX="301.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="128.7294921875" />
+                                    <Text id="ST_SImulationInclinationLabel" fx:id="ST_SImulationInclinationLabel" layoutX="511.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Angulação (º):" wrappingWidth="119.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Text id="labelExperimentCarModel" layoutX="765.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Perda de Potencia (%):" wrappingWidth="211.48681640625">
+                                    <Text id="ST_SImulationPowerLossLabel" fx:id="ST_SImulationPowerLossLabel" layoutX="765.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Perda de Potencia (%):" wrappingWidth="188.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -164,11 +164,26 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <ImageView fitHeight="105.0" fitWidth="274.0" layoutX="594.0" layoutY="120.0">
+                                    <ImageView id="ST_SimulationBulbConfigurationImg" fx:id="ST_SimulationBulbConfigurationImg" fitHeight="105.0" fitWidth="274.0" layoutX="594.0" layoutY="120.0">
                                        <image>
                                           <Image url="@img/00PowerLoss.png" />
                                        </image>
                                     </ImageView>
+                                    <Text id="ST_SImulationCarModelValue" fx:id="ST_SImulationCarModelValue" layoutX="351.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text id="ST_SimulationInclinationValue" fx:id="ST_SimulationInclinationValue" layoutX="639.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text id="ST_SImulationPowerLossValue" fx:id="ST_SImulationPowerLossValue" layoutX="960.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
                                  </children>
                               </AnchorPane>
                            </children>
