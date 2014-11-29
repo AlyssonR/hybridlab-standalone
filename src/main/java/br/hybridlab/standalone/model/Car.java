@@ -14,6 +14,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(unique = true)
     private String model;
 
     private Double power;

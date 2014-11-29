@@ -7,6 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -35,9 +36,6 @@ public class Controller {
     private Text txValueFrontalArea;
 
     @FXML
-    private Text txValueSpeed;
-
-    @FXML
     private ToggleGroup inputTypeRadioGroup;
 
     @FXML
@@ -48,6 +46,12 @@ public class Controller {
 
     @FXML
     private TextField textFieldPowerLossValue;
+
+    @FXML
+    private Button buttonStartSimulation;
+
+    @FXML
+    private TabPane tabPane;
 
     @FXML
     public void initialize() {
@@ -75,8 +79,7 @@ public class Controller {
             }
         });
 
-        //
-
+        //radio buttons behavior
         inputTypeRadioGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
@@ -90,9 +93,14 @@ public class Controller {
             }
         });
 
-        RadioButton button = (RadioButton) inputTypeRadioGroup.getSelectedToggle();
-
-
+        //Start simulation button behavior
+        buttonStartSimulation.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+                selectionModel.select(1);
+            }
+        });
 
     }
 

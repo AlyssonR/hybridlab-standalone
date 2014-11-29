@@ -20,7 +20,6 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!--<mapping package="br.hybridlab.standalone.model"/>-->
-        <mapping class="br.hybridlab.standalone.model.Experiment"/>
         <mapping class="br.hybridlab.standalone.model.Consumption"/>
         <mapping class="br.hybridlab.standalone.model.Simulation"/>
         <mapping class="br.hybridlab.standalone.model.Tension"/>

@@ -25,7 +25,7 @@
         </Pane>
         <AnchorPane prefHeight="523.0" prefWidth="1058.0">
             <children>
-                <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1146.0" stylesheets="@tabs.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-151.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1146.0" stylesheets="@tabs.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-151.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <tabs>
                         <Tab id="tabSimulationInit" text="Iniciar Simulação">
                             <content>
@@ -46,32 +46,31 @@
                                                     </font>
                                                 </Label>
 
+                                                <fx:define>
+                                                      <ToggleGroup fx:id="inputTypeRadioGroup"/>
+                                                  </fx:define>
 
-                                                <!--<fx:define>-->
-                                                      <!--<ToggleGroup fx:id="inputTypeRadioGroup"/>-->
-                                                  <!--</fx:define>-->
+                                                    <RadioButton id="labelExperimentInclination" fx:id="radioInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
+                                                       <font>
+                                                          <Font size="14.0" />
+                                                       </font>
+                                                    </RadioButton>
+                                                    <RadioButton id="labelExperimentPowerLoss" fx:id="radioPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
+                                                       <font>
+                                                          <Font size="14.0" />
+                                                       </font>
+                                                    </RadioButton>
+                                                <!--<RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
+                                                <!--<RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
 
-                                                    <!--<RadioButton id="labelExperimentInclination" fx:id="radioInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
-                                                       <!--<font>-->
-                                                          <!--<Font size="14.0" />-->
-                                                       <!--</font>-->
-                                                    <!--</RadioButton>-->
-                                                    <!--<RadioButton id="labelExperimentPowerLoss" fx:id="radioPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
-                                                       <!--<font>-->
-                                                          <!--<Font size="14.0" />-->
-                                                       <!--</font>-->
-                                                    <!--</RadioButton>-->
-
-                                                <RadioButton id="radioInclination" fx:id="radioInclination" layoutX="577.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
-                                                <RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="577.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
 
                                                 <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="780.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
                                                 <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">

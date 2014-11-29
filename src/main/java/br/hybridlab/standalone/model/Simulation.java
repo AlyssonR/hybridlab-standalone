@@ -27,6 +27,10 @@ public class Simulation {
 
     private String simulationReport;
 
+    private Double inclination;
+
+    private Double powerLoss;
+
     public Simulation(){
 
     }
@@ -87,5 +91,21 @@ public class Simulation {
 
     public void setSimulationReport(String simulationReport) {
         this.simulationReport = simulationReport;
+    }
+
+    public Double getInclination() {
+        return inclination;
+    }
+
+    public void setInclination(Double inclination) {
+        this.inclination = inclination;
+    }
+
+    public Double getPowerLoss() {
+        return powerLoss;
+    }
+
+    public void setPowerLoss(Double powerLoss) {
+        this.powerLoss = powerLoss;
     }
 }
