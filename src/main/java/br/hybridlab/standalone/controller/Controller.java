@@ -8,9 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import javax.swing.*;
@@ -40,6 +38,18 @@ public class Controller {
     private Text txValueSpeed;
 
     @FXML
+    private ToggleGroup inputTypeRadioGroup;
+
+    @FXML
+    private RadioButton radioInclination;
+
+    @FXML
+    private TextField textFieldInclinationValue;
+
+    @FXML
+    private TextField textFieldPowerLossValue;
+
+    @FXML
     public void initialize() {
         //Car models ComboBox:
         comboExperimentCarModel.setPromptText("Escolha um modelo...");
@@ -51,7 +61,7 @@ public class Controller {
         ObservableList<String> list = FXCollections.observableArrayList(modelList);
         comboExperimentCarModel.setItems(list);
 
-        //
+        //selected car details:
         comboExperimentCarModel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -64,6 +74,26 @@ public class Controller {
                 }
             }
         });
+
+        //
+
+        inputTypeRadioGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                if (inputTypeRadioGroup.getSelectedToggle().equals(radioInclination)) {
+                    textFieldInclinationValue.setDisable(false);
+                    textFieldPowerLossValue.setDisable(true);
+                } else {
+                    textFieldInclinationValue.setDisable(true);
+                    textFieldPowerLossValue.setDisable(false);
+                }
+            }
+        });
+
+        RadioButton button = (RadioButton) inputTypeRadioGroup.getSelectedToggle();
+
+
+
     }
 
     @FXML

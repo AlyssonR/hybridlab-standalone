@@ -45,30 +45,30 @@
                                                         <Font name="System Bold" size="24.0" />
                                                     </font>
                                                 </Label>
-                                                  <!--<fx:define>-->
-                                                      <!--<ToggleGroup fx:id="inputTypeRadioGroup"/>-->
-                                                  <!--</fx:define>-->
+                                                  <fx:define>
+                                                      <ToggleGroup fx:id="inputTypeRadioGroup"/>
+                                                  </fx:define>
 
-                                                    <!--<RadioButton id="labelExperimentInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
-                                                       <!--<font>-->
-                                                          <!--<Font size="14.0" />-->
-                                                       <!--</font>-->
-                                                    <!--</RadioButton>-->
-                                                    <!--<RadioButton id="labelExperimentPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
-                                                       <!--<font>-->
-                                                          <!--<Font size="14.0" />-->
-                                                       <!--</font>-->
-                                                    <!--</RadioButton>-->
-                                                <RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
-                                                <RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
-                                                    <font>
-                                                        <Font size="14.0" />
-                                                    </font>
-                                                </RadioButton>
+                                                    <RadioButton id="labelExperimentInclination" fx:id="radioInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
+                                                       <font>
+                                                          <Font size="14.0" />
+                                                       </font>
+                                                    </RadioButton>
+                                                    <RadioButton id="labelExperimentPowerLoss" fx:id="radioPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
+                                                       <font>
+                                                          <Font size="14.0" />
+                                                       </font>
+                                                    </RadioButton>
+                                                <!--<RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
+                                                <!--<RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
+                                                    <!--<font>-->
+                                                        <!--<Font size="14.0" />-->
+                                                    <!--</font>-->
+                                                <!--</RadioButton>-->
 
                                                 <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="778.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
                                                 <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
