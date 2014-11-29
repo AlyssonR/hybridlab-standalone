@@ -34,83 +34,64 @@
                                         <AnchorPane prefHeight="621.0" prefWidth="1146.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <children>
                                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="617.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1146.0" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="252.0" layoutX="130.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="869.0" />
-                                                <TableView id="tableViewExperiments" fx:id="tableViewExperiments" layoutX="130.0" layoutY="317.0" prefHeight="188.0" prefWidth="871.0">
-                                                    <columns>
-                                                        <TableColumn id="tableViewExperimentID" prefWidth="120.0" text="ID Ensaio" />
-                                                        <TableColumn id="tableViewExperimentCarModel" fx:id="tableViewExperimentCarModel" prefWidth="206.0" text="Carro" />
-                                                        <TableColumn id="tableViewExperimentTypeInput" fx:id="tableViewExperimentTypeInput" prefWidth="203.0" text="Tipo de Entrada" />
-                                                        <TableColumn id="tableViewExperimentInputValue" fx:id="tableViewExperimentInputValue" prefWidth="205.0" text="Valor da Entrada" />
-                                                        <TableColumn id="tableViewExperimentDuration" fx:id="tableViewExperimentDuration" maxWidth="4500.0" minWidth="0.0" prefWidth="136.0" text="Duração" />
-                                                    </columns>
-                                                </TableView>
-                                                <Button id="buttonStartSimulation" fx:id="buttonStartSimulation" layoutX="485.0" layoutY="537.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Iniciar Simulação">
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="289.0" layoutX="8.0" layoutY="138.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1140.0" />
+                                                <Button id="buttonStartSimulation" fx:id="buttonStartSimulation" layoutX="454.0" layoutY="467.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Iniciar Simulação">
                                                     <font>
                                                         <Font name="System Bold" size="17.0" />
                                                     </font>
                                                 </Button>
-                                                <Label id="labelValueSImulationID" layoutX="455.0" layoutY="14.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇÃO 001">
+                                                <Label id="labelValueSImulationID" layoutX="455.0" layoutY="67.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇÃO 001">
                                                     <font>
                                                         <Font name="System Bold" size="24.0" />
                                                     </font>
                                                 </Label>
-                                                <Label id="labelExperimentTitle" layoutX="460.0" layoutY="67.0" prefHeight="42.0" prefWidth="234.0" text="Parâmetros do Ensaio">
+                                                  <!--<fx:define>-->
+                                                      <!--<ToggleGroup fx:id="inputTypeRadioGroup"/>-->
+                                                  <!--</fx:define>-->
+
+                                                    <!--<RadioButton id="labelExperimentInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
+                                                       <!--<font>-->
+                                                          <!--<Font size="14.0" />-->
+                                                       <!--</font>-->
+                                                    <!--</RadioButton>-->
+                                                    <!--<RadioButton id="labelExperimentPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
+                                                       <!--<font>-->
+                                                          <!--<Font size="14.0" />-->
+                                                       <!--</font>-->
+                                                    <!--</RadioButton>-->
+                                                <RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
                                                     <font>
-                                                        <Font name="System Bold" size="17.0" />
+                                                        <Font size="14.0" />
                                                     </font>
-                                                </Label>
-                                                  <fx:define>
-                                                      <ToggleGroup fx:id="inputTypeRadioGroup"/>
-                                                  </fx:define>
+                                                </RadioButton>
+                                                <RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="579.0" layoutY="296.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </RadioButton>
 
-                                                    <RadioButton id="labelExperimentInclination" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">
-                                                       <font>
-                                                          <Font size="14.0" />
-                                                       </font>
-                                                    </RadioButton>
-                                                    <RadioButton id="labelExperimentPowerLoss" toggleGroup="$inputTypeRadioGroup" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">
-                                                       <font>
-                                                          <Font size="14.0" />
-                                                       </font>
-                                                    </RadioButton>
-                                                <!--<RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="168.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
-                                                    <!--<font>-->
-                                                        <!--<Font size="14.0" />-->
-                                                    <!--</font>-->
-                                                <!--</RadioButton>-->
-                                                <!--<RadioButton id="radioPowerLoss" fx:id="radioPowerLoss" layoutX="579.0" layoutY="202.0" mnemonicParsing="false" styleClass="radioButton" text="Perda de Potencia (%)">-->
-                                                    <!--<font>-->
-                                                        <!--<Font size="14.0" />-->
-                                                    <!--</font>-->
-                                                <!--</RadioButton>-->
-
-                                                <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="778.0" layoutY="167.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
-                                                <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
+                                                <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="778.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                                <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Text>
-                                                <TextField id="textFieldPowerLossValue" fx:id="textFieldPowerLossValue" disable="true" layoutX="778.0" layoutY="200.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
-                                                <Text id="labelExperimentCarModel" layoutX="207.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="177.48681640625">
+                                                <TextField id="textFieldPowerLossValue" fx:id="textFieldPowerLossValue" disable="true" layoutX="778.0" layoutY="294.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                                <Text id="labelExperimentCarModel" layoutX="207.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="177.48681640625">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Text>
-                                                <ComboBox fx:id="comboExperimentCarModel" layoutX="209.0" layoutY="150.0" prefHeight="25.0" prefWidth="271.0" />
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="210.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="270.0" />
-                                                <Text id="labelMass" layoutX="218.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
-                                                <Text id="labelPower" layoutX="217.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
-                                                <Text id="labelDragCOefficient" layoutX="216.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
-                                                <Text id="txValueMass" fx:id="txValueMass" layoutX="276.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="202.7294921875" />
-                                                <Text id="txValuePower" fx:id="txValuePower" layoutX="285.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="194.7294921875" />
-                                                <Text id="txValueDragCoefficient" fx:id="txValueDragCoefficient" layoutX="393.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="86.7294921875" />
-                                                <Text id="labelFrontalArea" layoutX="216.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
-                                                <Text id="txValueFrontalArea" fx:id="txValueFrontalArea" layoutX="304.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="128.7294921875" />
-                                                <Button id="buttonAddExperiment" fx:id="buttonAddExperiment" layoutX="777.0" layoutY="267.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="197.0" text="Adicionar Ensaio">
-                                                    <font>
-                                                        <Font size="17.0" />
-                                                    </font>
-                                                </Button>
+                                                <ComboBox fx:id="comboExperimentCarModel" layoutX="209.0" layoutY="241.0" prefHeight="25.0" prefWidth="271.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="210.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="270.0" />
+                                                <Text id="labelMass" layoutX="218.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
+                                                <Text id="labelPower" layoutX="217.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
+                                                <Text id="labelDragCOefficient" layoutX="216.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
+                                                <Text id="txValueMass" fx:id="txValueMass" layoutX="276.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="202.7294921875" />
+                                                <Text id="txValuePower" fx:id="txValuePower" layoutX="285.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="194.7294921875" />
+                                                <Text id="txValueDragCoefficient" fx:id="txValueDragCoefficient" layoutX="393.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="86.7294921875" />
+                                                <Text id="labelFrontalArea" layoutX="216.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
+                                                <Text id="txValueFrontalArea" fx:id="txValueFrontalArea" layoutX="304.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="128.7294921875" />
                                             </children>
                                         </AnchorPane>
                                     </children>
