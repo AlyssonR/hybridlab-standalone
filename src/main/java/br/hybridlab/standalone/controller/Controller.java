@@ -2,6 +2,8 @@ package br.hybridlab.standalone.controller;
 
 import br.hybridlab.standalone.dao.CarDAO;
 import br.hybridlab.standalone.model.Car;
+import br.hybridlab.standalone.model.Simulation;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,6 +21,8 @@ import java.util.List;
 public class Controller {
 
     private CarDAO carDAO;
+    private Car selectedCar;
+    private Simulation simulation;
 
     @FXML
     private ComboBox<String> comboExperimentCarModel;
@@ -70,11 +74,11 @@ public class Controller {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (oldValue != newValue) {
-                    Car newCar = carDAO.getByModel(newValue);
-                    txValueMass.setText(""+newCar.getMass());
-                    txValuePower.setText(""+newCar.getPower());
-                    txValueDragCoefficient.setText(""+newCar.getDragCoefficient());
-                    txValueFrontalArea.setText(""+newCar.getFrontalArea());
+                    selectedCar = carDAO.getByModel(newValue);
+                    txValueMass.setText("" + selectedCar.getMass());
+                    txValuePower.setText("" + selectedCar.getPower());
+                    txValueDragCoefficient.setText(""+selectedCar.getDragCoefficient());
+                    txValueFrontalArea.setText("" + selectedCar.getFrontalArea());
                 }
             }
         });
@@ -97,15 +101,40 @@ public class Controller {
         buttonStartSimulation.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                SelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-                selectionModel.select(1);
+
+                boolean formHasErrors = false;
+
+                //populating simulation field
+                try {
+                    simulation = new Simulation();
+                    if (selectedCar != null) {
+                        simulation.setCar(selectedCar);
+                    } else {
+                        throw new Exception();
+                    }
+                    if (textFieldInclinationValue.getText().isEmpty() && textFieldPowerLossValue.getText().isEmpty()) {
+                        throw new Exception();
+                    } else if (!textFieldPowerLossValue.isDisabled()){
+                            simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()));
+                    } else simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText()));
+                } catch (Exception e) { //TODO: create custom Exception
+                    JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Formulario Incompleto", JOptionPane.ERROR_MESSAGE);
+                    formHasErrors = true;
+                }
+
+                //Locking tab
+                if (!formHasErrors) {
+                    SelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+                    selectionModel.select(1);
+                    ObservableList<Tab> tabs = tabPane.getTabs();
+                    tabs.get(0).setDisable(true);
+                    tabs.get(2).setDisable(true);
+                }
+
+
+
             }
         });
-
-    }
-
-    @FXML
-    public void handleComboExperimentCarModelAction(ActionEvent event) {
 
     }
 
