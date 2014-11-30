@@ -1,9 +1,9 @@
 package br.hybridlab.standalone.controller;
 
+import br.hybridlab.standalone.ChartService;
 import br.hybridlab.standalone.dao.CarDAO;
 import br.hybridlab.standalone.model.Car;
 import br.hybridlab.standalone.model.Simulation;
-import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
@@ -23,6 +24,7 @@ public class Controller {
     private CarDAO carDAO;
     private Car selectedCar;
     private Simulation simulation;
+    private ChartService chartService;
 
     @FXML
     private ComboBox<String> comboExperimentCarModel;
@@ -74,6 +76,9 @@ public class Controller {
 
     @FXML
     private TabPane tabPane;
+
+    @FXML
+    private LineChart<Number,Number> ST_SimulationConsumptionChart;
 
     @FXML
     public void initialize() {
@@ -175,6 +180,9 @@ public class Controller {
                 tabPane.getSelectionModel().select(0);
             }
         });
+
+        chartService = new ChartService(ST_SimulationConsumptionChart);
+        chartService.init();
     }
 
     public Controller() {}

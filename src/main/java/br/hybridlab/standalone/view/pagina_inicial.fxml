@@ -155,9 +155,9 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <LineChart layoutX="167.0" layoutY="298.0" prefHeight="262.0" prefWidth="391.0">
+                                    <LineChart fx:id="ST_SimulationConsumptionChart" layoutX="167.0" layoutY="298.0" prefHeight="262.0" prefWidth="391.0">
                                       <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
+                                        <NumberAxis side="BOTTOM" />
                                       </xAxis>
                                       <yAxis>
                                         <NumberAxis side="LEFT" />
