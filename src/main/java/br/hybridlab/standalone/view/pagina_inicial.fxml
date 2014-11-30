@@ -46,6 +46,10 @@
                                                     </font>
                                                 </Label>
 
+                                                <!--
+                                                Inicio de código que precisa estar comentando para funcionar no scene builder
+                                                -->
+
                                                 <fx:define>
                                                       <ToggleGroup fx:id="inputTypeRadioGroup"/>
                                                   </fx:define>
@@ -60,6 +64,17 @@
                                                           <Font size="14.0" />
                                                        </font>
                                                     </RadioButton>
+
+                                                <!--
+                                                Fim
+                                                -->
+
+
+
+                                                <!--
+                                                Inicio de código que precisa estar descomentado para funcionar no scene builder
+                                                -->
+
                                                 <!--<RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
                                                     <!--<font>-->
                                                         <!--<Font size="14.0" />-->
@@ -71,6 +86,9 @@
                                                     <!--</font>-->
                                                 <!--</RadioButton>-->
 
+                                                <!--
+                                                Fim
+                                                -->
 
                                                 <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="780.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
                                                 <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
@@ -184,6 +202,11 @@
                                        </font>
                                     </Text>
                                     <Button id="ST_SaveSimulationButton" fx:id="ST_SaveSimulationButton" layoutX="903.0" layoutY="570.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Salvar Simulação">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="ST_CancelSimulationButton" fx:id="ST_CancelSimulationButton" layoutX="662.0" layoutY="570.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Cancelar">
                                        <font>
                                           <Font name="System Bold" size="17.0" />
                                        </font>
