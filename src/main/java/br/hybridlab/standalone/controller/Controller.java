@@ -55,6 +55,24 @@ public class Controller {
     private Button buttonStartSimulation;
 
     @FXML
+    private Text ST_SImulationMassValue;
+
+    @FXML
+    private Text ST_SImulationDragCoefficientValue;
+
+    @FXML
+    private Text ST_SImulationFrontalAreaValue;
+
+    @FXML
+    private Text ST_SImulationPowerValue;
+
+    @FXML
+    private Text ST_SImulationCarModelValue;
+
+    @FXML
+    private Button ST_CancelSimulationButton;
+
+    @FXML
     private TabPane tabPane;
 
     @FXML
@@ -130,12 +148,33 @@ public class Controller {
                     tabs.get(0).setDisable(true);
                     tabs.get(2).setDisable(true);
                 }
-
-
-
             }
         });
 
+
+        tabPane.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
+            @Override
+            public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
+                if (newValue.getText().equals("Simulação") && simulation!=null) {
+                    ST_SImulationCarModelValue.setText(""+selectedCar.getModel());
+                    ST_SImulationMassValue.setText("" + selectedCar.getMass());
+                    ST_SImulationFrontalAreaValue.setText(""+selectedCar.getFrontalArea());
+                    ST_SImulationDragCoefficientValue.setText(""+selectedCar.getDragCoefficient());
+                    ST_SImulationPowerValue.setText(""+selectedCar.getPower());
+                }
+            }
+        });
+
+        //cancel button
+        ST_CancelSimulationButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ObservableList<Tab> tabs = tabPane.getTabs();
+                tabs.get(0).setDisable(false);
+                tabs.get(2).setDisable(false);
+                tabPane.getSelectionModel().select(0);
+            }
+        });
     }
 
     public Controller() {}
