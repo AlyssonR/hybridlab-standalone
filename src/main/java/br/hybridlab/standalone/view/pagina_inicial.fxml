@@ -182,9 +182,7 @@
                                        </font>
                                     </Text>
                                     <ImageView id="ST_SimulationBulbConfigurationImg" fx:id="ST_SimulationBulbConfigurationImg" fitHeight="105.0" fitWidth="274.0" layoutX="594.0" layoutY="160.0">
-                                       <image>
-                                          <Image url="@img/00PowerLoss.png" />
-                                       </image>
+
                                     </ImageView>
                                     <Text id="ST_SImulationCarModelValue" fx:id="ST_SImulationCarModelValue" layoutX="351.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
                                        <font>

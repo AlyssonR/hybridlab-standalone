@@ -13,6 +13,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import javax.swing.*;
@@ -95,6 +97,9 @@ public class Controller {
     private LineChart<Number,Number> ST_SimulationTensionChart;
 
     @FXML
+    private ImageView ST_SimulationBulbConfigurationImg;
+
+    @FXML
     public void initialize() {
         //Car models ComboBox:
         comboExperimentCarModel.setPromptText("Escolha um modelo...");
@@ -146,6 +151,7 @@ public class Controller {
                 //populating simulation field
                 try {
                     simulation = new Simulation();
+                    String numberLamps;
                     if (selectedCar != null) {
                         simulation.setCar(selectedCar);
                     } else {
@@ -156,15 +162,25 @@ public class Controller {
                     } else if (!textFieldPowerLossValue.isDisabled()){
                         simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()));
                         simulation.setInclination(Math.asin((((Double.parseDouble(textFieldPowerLossValue.getText()) * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))));
+                        numberLamps = LampsChoice(simulation);
+                        Image img = new Image(getClass().getResourceAsStream("/img/"+numberLamps+"PowerLoss.png"));
+                        ST_SimulationBulbConfigurationImg.setImage(img);
 
                     } else {
                         simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText()));
                         simulation.setPowerLoss((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText()) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower()));
+                        numberLamps = LampsChoice(simulation);
+                        Image img = new Image(getClass().getResourceAsStream("/img/"+numberLamps+"PowerLoss.png"));
+                        ST_SimulationBulbConfigurationImg.setImage(img);
                     }
                 } catch (Exception e) { //TODO: create custom Exception
                     JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Formulario Incompleto", JOptionPane.ERROR_MESSAGE);
                     formHasErrors = true;
                 }
+
+
+
+
 
                 //Locking tab
                 if (!formHasErrors) {
@@ -211,6 +227,34 @@ public class Controller {
 
         chartServiceT = new ChartService(ST_SimulationTensionChart);
         chartServiceT.init();
+    }
+
+    private String LampsChoice(Simulation simulation) {
+        String number = null;
+        if(simulation.getPowerLoss() < 0.05)
+            number = "00";
+        if(simulation.getPowerLoss() >= 0.05 && simulation.getPowerLoss() < 0.15)
+            number = "10";
+        if(simulation.getPowerLoss() >= 0.15 && simulation.getPowerLoss() < 0.25)
+            number = "20";
+        if(simulation.getPowerLoss() >= 0.25 && simulation.getPowerLoss() < 0.35)
+            number = "30";
+        if(simulation.getPowerLoss() >= 0.35 && simulation.getPowerLoss() < 0.45)
+            number = "40";
+        if(simulation.getPowerLoss() >= 0.45 && simulation.getPowerLoss() < 0.55)
+            number = "50";
+        if(simulation.getPowerLoss() >= 0.55 && simulation.getPowerLoss() < 0.65)
+            number = "60";
+        if(simulation.getPowerLoss() >= 0.65 && simulation.getPowerLoss() < 0.75)
+            number = "70";
+        if(simulation.getPowerLoss() >= 0.75 && simulation.getPowerLoss() < 0.85)
+            number = "80";
+        if(simulation.getPowerLoss() >= 0.85 && simulation.getPowerLoss() < 0.95)
+            number = "90";
+        if(simulation.getPowerLoss() >= 0.95)
+            number = "100";
+
+        return number;
     }
 
     public Controller() {}
