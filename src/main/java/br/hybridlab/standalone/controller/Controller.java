@@ -16,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import javax.swing.*;
-import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +25,7 @@ public class Controller {
     private Car selectedCar;
     private Simulation simulation;
     private ChartService chartService;
+    private ChartService chartServiceT;
 
     private Double gravity = 9.8;
     private Double airDensity = 1.23;
@@ -90,6 +90,9 @@ public class Controller {
 
     @FXML
     private LineChart<Number,Number> ST_SimulationConsumptionChart;
+
+    @FXML
+    private LineChart<Number,Number> ST_SimulationTensionChart;
 
     @FXML
     public void initialize() {
@@ -205,6 +208,9 @@ public class Controller {
 
         chartService = new ChartService(ST_SimulationConsumptionChart);
         chartService.init();
+
+        chartServiceT = new ChartService(ST_SimulationTensionChart);
+        chartServiceT.init();
     }
 
     public Controller() {}

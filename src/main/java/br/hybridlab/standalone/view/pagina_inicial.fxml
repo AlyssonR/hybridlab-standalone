@@ -163,9 +163,9 @@
                                         <NumberAxis side="LEFT" />
                                       </yAxis>
                                     </LineChart>
-                                    <LineChart layoutX="599.0" layoutY="290.0" prefHeight="270.0" prefWidth="399.0">
+                                    <LineChart fx:id="ST_SimulationTensionChart" layoutX="599.0" layoutY="298.0" prefHeight="262.0" prefWidth="391.0">
                                        <xAxis>
-                                          <CategoryAxis side="BOTTOM" />
+                                          <NumberAxis side="BOTTOM" />
                                        </xAxis>
                                        <yAxis>
                                           <NumberAxis side="LEFT" />

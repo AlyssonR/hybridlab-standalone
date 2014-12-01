@@ -36,9 +36,9 @@ public class ChartService {
         xAxis.setAutoRanging(false);
         chart.getYAxis().setAutoRanging(true);
         chart.setAnimated(false);
-        chart.setTitle("combustível x tempo");
+//        chart.setTitle("combustível x tempo");
         series = new LineChart.Series<Number, Number>();
-        series.setName("Area Chart Series");
+        series.setName("Line Chart Series");
         chart.getData().add(series);
         initParallelBehavior();
     }
