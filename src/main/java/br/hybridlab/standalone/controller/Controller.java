@@ -160,7 +160,7 @@ public class Controller {
                     if (textFieldInclinationValue.getText().isEmpty() && textFieldPowerLossValue.getText().isEmpty()) {
                         throw new Exception();
                     } else if (!textFieldPowerLossValue.isDisabled()){
-                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()));
+                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText())/100);
                         simulation.setInclination(Math.asin((((Double.parseDouble(textFieldPowerLossValue.getText()) * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))));
                         numberLamps = LampsChoice(simulation);
                         Image img = new Image(getClass().getResourceAsStream("/img/"+numberLamps+"PowerLoss.png"));
