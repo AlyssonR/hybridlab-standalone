@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import javax.swing.*;
+import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,10 @@ public class Controller {
     private Car selectedCar;
     private Simulation simulation;
     private ChartService chartService;
+
+    private Double gravity = 9.8;
+    private Double airDensity = 1.23;
+    private Double speed = 22.2;
 
     @FXML
     private ComboBox<String> comboExperimentCarModel;
@@ -75,7 +80,15 @@ public class Controller {
     private Button ST_CancelSimulationButton;
 
     @FXML
+    private Text ST_SImulationPowerLossValue;
+
+    @FXML
+    private Text ST_SimulationInclinationValue;
+
+    @FXML
     private TabPane tabPane;
+    @FXML
+    private ImageView ST_SimulationBulbConfigurationImg;
 
     @FXML
     private LineChart<Number,Number> ST_SimulationConsumptionChart;
@@ -113,9 +126,11 @@ public class Controller {
                 if (inputTypeRadioGroup.getSelectedToggle().equals(radioInclination)) {
                     textFieldInclinationValue.setDisable(false);
                     textFieldPowerLossValue.setDisable(true);
+                    textFieldPowerLossValue.setText("");
                 } else {
                     textFieldInclinationValue.setDisable(true);
                     textFieldPowerLossValue.setDisable(false);
+                    textFieldInclinationValue.setText("");
                 }
             }
         });
@@ -138,8 +153,13 @@ public class Controller {
                     if (textFieldInclinationValue.getText().isEmpty() && textFieldPowerLossValue.getText().isEmpty()) {
                         throw new Exception();
                     } else if (!textFieldPowerLossValue.isDisabled()){
-                            simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()));
-                    } else simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText()));
+                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()));
+                        simulation.setInclination(Math.asin((((Double.parseDouble(textFieldPowerLossValue.getText()) * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))));
+
+                    } else {
+                        simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText()));
+                        simulation.setPowerLoss((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText()) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower()));
+                    }
                 } catch (Exception e) { //TODO: create custom Exception
                     JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Formulario Incompleto", JOptionPane.ERROR_MESSAGE);
                     formHasErrors = true;
@@ -160,12 +180,16 @@ public class Controller {
         tabPane.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tab>() {
             @Override
             public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
-                if (newValue.getText().equals("Simulação") && simulation!=null) {
-                    ST_SImulationCarModelValue.setText(""+selectedCar.getModel());
+                if (newValue.getText().equals("Simulação") && simulation != null) {
+                    ST_SImulationCarModelValue.setText("" + selectedCar.getModel());
                     ST_SImulationMassValue.setText("" + selectedCar.getMass());
-                    ST_SImulationFrontalAreaValue.setText(""+selectedCar.getFrontalArea());
-                    ST_SImulationDragCoefficientValue.setText(""+selectedCar.getDragCoefficient());
-                    ST_SImulationPowerValue.setText(""+selectedCar.getPower());
+                    ST_SImulationFrontalAreaValue.setText("" + selectedCar.getFrontalArea());
+                    ST_SImulationDragCoefficientValue.setText("" + selectedCar.getDragCoefficient());
+                    ST_SImulationPowerValue.setText("" + selectedCar.getPower());
+                    ST_SImulationPowerLossValue.setText("" + simulation.getPowerLoss());
+                    ST_SimulationInclinationValue.setText("" + simulation.getInclination());
+
+
                 }
             }
         });

@@ -72,7 +72,7 @@
 
 
                                                 <!--
-                                                Inicio de código que precisa estar descomentado para funcionar no scene builder
+                                                Inicio de código que precisa esst_tar descomentado para funcionar no scene builder
                                                 -->
 
                                                 <!--<RadioButton id="radioInclination" fx:id="radioInclination" layoutX="579.0" layoutY="262.0" mnemonicParsing="false" selected="true" styleClass="radioButton" text="Angulação (º)">-->
