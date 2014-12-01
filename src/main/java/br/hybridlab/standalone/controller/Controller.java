@@ -87,8 +87,6 @@ public class Controller {
 
     @FXML
     private TabPane tabPane;
-    @FXML
-    private ImageView ST_SimulationBulbConfigurationImg;
 
     @FXML
     private LineChart<Number,Number> ST_SimulationConsumptionChart;
