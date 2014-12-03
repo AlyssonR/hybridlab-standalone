@@ -7,22 +7,26 @@ import javax.persistence.*;
  * Created by alysson on 19/11/14.
  */
 @Entity
-@Table(name = "tb_car")
+@Table(name = "chart_car")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
-    @Column(unique = true)
+    @Column(columnDefinition = "varchar(50)")
     private String model;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double power;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double frontalArea;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double mass;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double dragCoefficient;
 
 
@@ -38,11 +42,11 @@ public class Car {
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

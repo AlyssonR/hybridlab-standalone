@@ -1,30 +1,30 @@
 package br.hybridlab.standalone.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by alysson on 19/11/14.
  */
 @Entity
-@Table(name = "tb_consumption")
+@Table(name = "chart_consumption")
 public class Consumption {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "fk_simulation_id")
     private Simulation simulation;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double value;
 
-    private Date time;
+    private Integer time;
 
     public Consumption() {}
 
-    public Consumption(Long id, Simulation simulation, Double value, Date time) {
+    public Consumption(Integer id, Simulation simulation, Double value, Integer time) {
         this.id = id;
         this.simulation = simulation;
         this.value = value;
@@ -32,11 +32,11 @@ public class Consumption {
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -56,11 +56,11 @@ public class Consumption {
         this.value = value;
     }
 
-    public Date getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 }

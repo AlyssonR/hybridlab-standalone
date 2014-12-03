@@ -1,31 +1,31 @@
 package br.hybridlab.standalone.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by alysson on 19/11/14.
  */
 
 @Entity
-@Table(name = "tb_tension")
-public class Tension {
+@Table(name = "chart_current")
+public class Current {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "fk_simulation_id")
     private Simulation simulation;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double value;
 
-    private Date time;
+    private Integer time;
 
-    public Tension() {}
+    public Current() {}
 
-    public Tension(Long id, Simulation simulation,Double value, Date time) {
+    public Current(Integer id, Simulation simulation, Double value, Integer time) {
         this.id = id;
         this.simulation = simulation;
         this.value = value;
@@ -33,11 +33,11 @@ public class Tension {
     }
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -57,11 +57,11 @@ public class Tension {
         this.value = value;
     }
 
-    public Date getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 }

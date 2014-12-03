@@ -1,20 +1,18 @@
 package br.hybridlab.standalone.model;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**
  * Created by alysson on 19/11/14.
  */
 @Entity
-@Table(name = "tb_simulation")
+@Table(name = "chart_simulation")
 public class Simulation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
@@ -23,25 +21,27 @@ public class Simulation {
     @JoinColumn(name = "fk_car_id")
     private Car car;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double inclination;
 
+    @Column(columnDefinition = "decimal(8,2)")
     private Double powerLoss;
 
     public Simulation(){
 
     }
 
-    public Simulation(Long id, Date date, Car car) {
+    public Simulation(Integer id, Date date, Car car) {
         this.id = id;
         this.date = date;
         this.car = car;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

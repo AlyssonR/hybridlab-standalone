@@ -22,7 +22,7 @@
         <!--<mapping package="br.hybridlab.standalone.model"/>-->
         <mapping class="br.hybridlab.standalone.model.Consumption"/>
         <mapping class="br.hybridlab.standalone.model.Simulation"/>
-        <mapping class="br.hybridlab.standalone.model.Tension"/>
+        <mapping class="br.hybridlab.standalone.model.Current"/>
         <mapping class="br.hybridlab.standalone.model.Car"/>
 
     </session-factory>
