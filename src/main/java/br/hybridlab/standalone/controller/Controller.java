@@ -181,6 +181,11 @@ public class Controller {
 
 
 
+                chartService = new ChartService(ST_SimulationConsumptionChart);
+                chartService.init();
+
+                chartServiceT = new ChartService(ST_SimulationTensionChart);
+                chartServiceT.init();
 
                 //Locking tab
                 if (!formHasErrors) {
@@ -222,11 +227,6 @@ public class Controller {
             }
         });
 
-        chartService = new ChartService(ST_SimulationConsumptionChart);
-        chartService.init();
-
-        chartServiceT = new ChartService(ST_SimulationTensionChart);
-        chartServiceT.init();
     }
 
     private String LampsChoice(Simulation simulation) {

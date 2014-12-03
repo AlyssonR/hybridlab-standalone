@@ -35,7 +35,7 @@ public class HybridLab extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        communicationService = new CommunicationService();
+        communicationService = CommunicationService.getInstance();
         communicationService.initialize();
         String temp = System.getProperty("java.class.path");
 

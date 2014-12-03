@@ -8,12 +8,16 @@ import gnu.io.SerialPortEventListener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 /**
  * Created by alysson on 14/11/14.
  */
 public class CommunicationService implements SerialPortEventListener {
+
+
+    private static CommunicationService instance;
 
     SerialPort serialPort;
     /** The port we're normally going to use. */
@@ -35,6 +39,17 @@ public class CommunicationService implements SerialPortEventListener {
     private static final int TIME_OUT = 2000;
     /** Default bits per second for COM port. */
     private static final int DATA_RATE = 9600;
+
+    private Double readValues;
+
+    private CommunicationService() {}
+
+    public static CommunicationService getInstance() {
+        if (instance==null) {
+            instance = new CommunicationService();
+        }
+        return instance;
+    }
 
     public void initialize() {
         // the next line is for Raspberry Pi and
@@ -101,6 +116,7 @@ public class CommunicationService implements SerialPortEventListener {
             try {
                 String inputLine=input.readLine();
                 System.out.println(inputLine);
+                readValues = new Double(inputLine);
             } catch (Exception e) {
                 System.err.println(e.toString());
             }
@@ -111,4 +127,9 @@ public class CommunicationService implements SerialPortEventListener {
     public BufferedReader getInput() {
         return input;
     }
+
+    public Double getReadValues() {
+        return readValues;
+    }
+
 }

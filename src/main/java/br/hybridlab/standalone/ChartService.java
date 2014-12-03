@@ -14,6 +14,8 @@ import java.util.concurrent.Executors;
  */
 public class ChartService {
 
+    private CommunicationService commService;
+
     private LineChart<Number,Number> chart;
     private static final int MAX_DATA_POINTS = 50;
 
@@ -31,6 +33,7 @@ public class ChartService {
 
 
     public void init() {
+        commService = CommunicationService.getInstance();
         xAxis = (NumberAxis) chart.getXAxis();
         xAxis.setForceZeroInRange(false);
         xAxis.setAutoRanging(false);
@@ -56,8 +59,9 @@ public class ChartService {
         public void run() {
             try {
                 // add a item of random data to queue
-                dataQ.add(Math.random());
-                Thread.sleep(50);
+                Double temp =  commService.getReadValues();
+                dataQ.add(temp);
+                Thread.sleep(500);
                 executor.execute(this);
             } catch (InterruptedException ex) {
                 //TODO:deal with it;
