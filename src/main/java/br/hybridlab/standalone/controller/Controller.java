@@ -171,14 +171,19 @@ public class Controller {
                         simulation.setInclination(Double.parseDouble(format.format(((Math.asin(((simulation.getPowerLoss()
                                 * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))*180)/Math.PI))));
                         numberLamps = LampsChoice(simulation);
+                        simulation.setPowerLoss(simulation.getPowerLoss()*100);
                         Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);
 
                     } else {
+                        DecimalFormat format = new DecimalFormat("0.00");
                         //pot=(massa*gravidade*sind(teta) + 0.5*densidade_ar*velocidade*velocidade*coeficiente_aerodinamico*area_frontal)*velocidade/potencia;
                         simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText())/100);
-                        simulation.setPowerLoss((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText())*Math.PI/180) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower());
+                        simulation.setPowerLoss(Double.parseDouble(format.format(((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText())
+                                *Math.PI/180) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower()))));
                         numberLamps = LampsChoice(simulation);
+                        simulation.setPowerLoss(simulation.getPowerLoss()*100);
+                        simulation.setInclination(simulation.getInclination()*100);
                         Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);
                     }
@@ -220,7 +225,6 @@ public class Controller {
                     ST_SImulationPowerValue.setText("" + selectedCar.getPower());
                     ST_SImulationPowerLossValue.setText("" + simulation.getPowerLoss());
                     ST_SimulationInclinationValue.setText("" + simulation.getInclination());
-
 
                 }
             }
