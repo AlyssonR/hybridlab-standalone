@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import javax.swing.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -162,16 +163,21 @@ public class Controller {
                     }
                     if (textFieldInclinationValue.getText().isEmpty() && textFieldPowerLossValue.getText().isEmpty()) {
                         throw new Exception();
-                    } else if (!textFieldPowerLossValue.isDisabled()) {
-                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()) / 100);
-                        simulation.setInclination(Math.asin((((Double.parseDouble(textFieldPowerLossValue.getText()) * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))));
+
+                    } else if (!textFieldPowerLossValue.isDisabled()){
+                        DecimalFormat format = new DecimalFormat("0.00");
+                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText())/100);
+                        // teta=asind(((pot*potencia/velocidade-0.5*densidade_ar*velocidade*velocidade*coeficiente_aerodinamico*area_frontal)/(massa*gravidade)));
+                        simulation.setInclination(Double.parseDouble(format.format(((Math.asin(((simulation.getPowerLoss()
+                                * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))*180)/Math.PI))));
                         numberLamps = LampsChoice(simulation);
                         Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);
 
                     } else {
-                        simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText()));
-                        simulation.setPowerLoss((selectedCar.getMass() * gravity * Math.sin(Double.parseDouble(textFieldInclinationValue.getText()) + 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) * speed / selectedCar.getPower()));
+                        //pot=(massa*gravidade*sind(teta) + 0.5*densidade_ar*velocidade*velocidade*coeficiente_aerodinamico*area_frontal)*velocidade/potencia;
+                        simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText())/100);
+                        simulation.setPowerLoss((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText())*Math.PI/180) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower());
                         numberLamps = LampsChoice(simulation);
                         Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);

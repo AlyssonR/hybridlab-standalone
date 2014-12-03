@@ -43,9 +43,9 @@ public class HybridLab extends Application {
 
         URL resource = getClass().getResource("/pagina_inicial.fxml");
 
-//        carDAO.save(new Car("Gol 1.6",74300d, 2.03d, 1100d, 0.34d));
-//        carDAO.save(new Car("Uno 1.0 ",5400d, 2.06d, 955d, 0.35d));
-//        carDAO.save(new Car("Amarok 2.0",134230d, 3.02d, 2048d, 0.42d));
+        //carDAO.save(new Car("Gol 1.6",74300d, 2.03d, 1100d, 0.34d));
+        //carDAO.save(new Car("Uno 1.0 ",54000d, 2.06d, 955d, 0.35d));
+
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/pagina_inicial.fxml"));
         loader.setControllerFactory(new Callback<Class<?>, Object>() {
