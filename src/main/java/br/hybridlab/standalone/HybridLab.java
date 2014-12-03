@@ -1,6 +1,7 @@
 package br.hybridlab.standalone;
 
 import br.hybridlab.standalone.dao.CarDAO;
+import br.hybridlab.standalone.dao.SimulationDAO;
 import br.hybridlab.standalone.model.Car;
 import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
@@ -28,6 +29,7 @@ public class HybridLab extends Application {
     private CommunicationService communicationService;
     private SessionFactory sessionFactory;
     private static CarDAO carDAO = new CarDAO();
+    private static SimulationDAO simulationDAO = new SimulationDAO();
 
     public static void main(String[] args) throws Exception {
         launch();
@@ -51,9 +53,10 @@ public class HybridLab extends Application {
             public Object call(Class<?> type) {
                 try {
                     for (Constructor<?> constructor : type.getConstructors()) {
-                        if (constructor.getParameterCount()==1 &&
-                                constructor.getParameterTypes()[0]==CarDAO.class) {
-                            return constructor.newInstance(carDAO);
+                        if (constructor.getParameterCount()==2 &&
+                                constructor.getParameterTypes()[0]==CarDAO.class &&
+                                constructor.getParameterTypes()[1]== SimulationDAO.class) {
+                            return constructor.newInstance(carDAO,simulationDAO);
                         }
                     }
                     // no matching constructor found, just call no-arg constructor as default:

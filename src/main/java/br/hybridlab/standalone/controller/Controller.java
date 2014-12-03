@@ -2,6 +2,7 @@ package br.hybridlab.standalone.controller;
 
 import br.hybridlab.standalone.ChartService;
 import br.hybridlab.standalone.dao.CarDAO;
+import br.hybridlab.standalone.dao.SimulationDAO;
 import br.hybridlab.standalone.model.Car;
 import br.hybridlab.standalone.model.Simulation;
 import javafx.beans.value.ChangeListener;
@@ -19,10 +20,12 @@ import javafx.scene.text.Text;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Controller {
 
+    private SimulationDAO simulationDAO;
     private CarDAO carDAO;
     private Car selectedCar;
     private Simulation simulation;
@@ -159,27 +162,28 @@ public class Controller {
                     }
                     if (textFieldInclinationValue.getText().isEmpty() && textFieldPowerLossValue.getText().isEmpty()) {
                         throw new Exception();
-                    } else if (!textFieldPowerLossValue.isDisabled()){
-                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText())/100);
+                    } else if (!textFieldPowerLossValue.isDisabled()) {
+                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()) / 100);
                         simulation.setInclination(Math.asin((((Double.parseDouble(textFieldPowerLossValue.getText()) * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))));
                         numberLamps = LampsChoice(simulation);
-                        Image img = new Image(getClass().getResourceAsStream("/img/"+numberLamps+"PowerLoss.png"));
+                        Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);
 
                     } else {
                         simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText()));
-                        simulation.setPowerLoss((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText()) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower()));
+                        simulation.setPowerLoss((selectedCar.getMass() * gravity * Math.sin(Double.parseDouble(textFieldInclinationValue.getText()) + 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) * speed / selectedCar.getPower()));
                         numberLamps = LampsChoice(simulation);
-                        Image img = new Image(getClass().getResourceAsStream("/img/"+numberLamps+"PowerLoss.png"));
+                        Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);
                     }
+
                 } catch (Exception e) { //TODO: create custom Exception
                     JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Formulario Incompleto", JOptionPane.ERROR_MESSAGE);
                     formHasErrors = true;
                 }
 
-
-
+                simulation.setDate(new Date());
+                simulationDAO.save(simulation);
 
                 chartService = new ChartService(ST_SimulationConsumptionChart);
                 chartService.init();
@@ -259,7 +263,8 @@ public class Controller {
 
     public Controller() {}
 
-    public Controller(CarDAO carDAO) {
+    public Controller(CarDAO carDAO, SimulationDAO simulationDAO) {
         this.carDAO = carDAO;
+        this.simulationDAO = simulationDAO;
     }
 }

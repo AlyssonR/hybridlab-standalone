@@ -2,6 +2,7 @@ package br.hybridlab.standalone.model;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -15,17 +16,12 @@ public class Simulation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-
-    private Date hour;
-
-    private Date duration;
 
     @ManyToOne
     @JoinColumn(name = "fk_car_id")
     private Car car;
-
-    private String simulationReport;
 
     private Double inclination;
 
@@ -35,14 +31,10 @@ public class Simulation {
 
     }
 
-    public Simulation(Long id, Date date, Time hour, Time duration, Car car,
-                      String simulationReport) {
+    public Simulation(Long id, Date date, Car car) {
         this.id = id;
         this.date = date;
-        this.hour = hour;
-        this.duration = duration;
         this.car = car;
-        this.simulationReport = simulationReport;
     }
 
     public Long getId() {
@@ -61,36 +53,12 @@ public class Simulation {
         this.date = date;
     }
 
-    public Date getHour() {
-        return hour;
-    }
-
-    public void setHour(Date hour) {
-        this.hour = hour;
-    }
-
-    public Date getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Date duration) {
-        this.duration = duration;
-    }
-
     public Car getCar() {
         return car;
     }
 
     public void setCar(Car car) {
         this.car = car;
-    }
-
-    public String getSimulationReport() {
-        return simulationReport;
-    }
-
-    public void setSimulationReport(String simulationReport) {
-        this.simulationReport = simulationReport;
     }
 
     public Double getInclination() {
