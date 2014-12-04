@@ -109,6 +109,14 @@ public class Controller {
 
     @FXML
     public void initialize() {
+        ST_SimulationTensionChart.getXAxis().setLabel("Segundos (s)");
+        ST_SimulationTensionChart.getYAxis().setLabel("Corrente (A)");
+
+
+        ST_SimulationConsumptionChart.getXAxis().setLabel("Segundos (s)");
+        ST_SimulationConsumptionChart.getYAxis().setLabel("Consumo por Segundo (l/s)");
+
+
         textFieldInclinationValue.setMaxLength(2);
         textFieldInclinationValue.setRestrict("^(([01]?[0-9])|(20))$");
         textFieldPowerLossValue.setMaxLength(3);
@@ -162,10 +170,12 @@ public class Controller {
                     textFieldInclinationValue.setDisable(false);
                     textFieldPowerLossValue.setDisable(true);
                     textFieldPowerLossValue.setText("");
+                    textFieldPowerLossValue.clear();
                 } else {
                     textFieldInclinationValue.setDisable(true);
                     textFieldPowerLossValue.setDisable(false);
                     textFieldInclinationValue.setText("");
+                    textFieldInclinationValue.clear();
                 }
             }
         });
