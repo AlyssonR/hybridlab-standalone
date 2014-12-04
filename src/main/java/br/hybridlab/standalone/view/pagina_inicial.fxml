@@ -10,6 +10,7 @@
 <?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import br.hybridlab.standalone.controller.AttributeTextField?>
 
 <VBox prefHeight="796.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.hybridlab.standalone.controller.Controller">
     <children>
@@ -90,13 +91,13 @@
                                                 Fim
                                                 -->
 
-                                                <TextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="780.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                                <AttributeTextField id="textFieldInclinationValue" fx:id="textFieldInclinationValue" layoutX="780.0" layoutY="261.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
                                                 <Text id="labelExperimentTypeInput" layoutX="577.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tipo de Entrada Desejada:" wrappingWidth="238.48681640625">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
                                                 </Text>
-                                                <TextField id="textFieldPowerLossValue" fx:id="textFieldPowerLossValue" disable="true" layoutX="780.0" layoutY="294.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
+                                                <AttributeTextField id="textFieldPowerLossValue" fx:id="textFieldPowerLossValue" disable="true" layoutX="780.0" layoutY="294.0" prefHeight="25.0" prefWidth="129.0" promptText="Valor da Entrada" />
                                                 <Text id="labelExperimentCarModel" layoutX="207.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="177.48681640625">
                                                     <font>
                                                         <Font size="14.0" />

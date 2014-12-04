@@ -63,10 +63,10 @@ public class Controller {
     private RadioButton radioInclination;
 
     @FXML
-    private TextField textFieldInclinationValue;
+    private AttributeTextField textFieldInclinationValue;
 
     @FXML
-    private TextField textFieldPowerLossValue;
+    private AttributeTextField textFieldPowerLossValue;
 
     @FXML
     private Button buttonStartSimulation;
@@ -109,6 +109,26 @@ public class Controller {
 
     @FXML
     public void initialize() {
+        textFieldInclinationValue.setMaxLength(2);
+        textFieldInclinationValue.setRestrict("^(([01]?[0-9])|(20))$");
+        textFieldPowerLossValue.setMaxLength(3);
+        textFieldPowerLossValue.setRestrict("\\b(0*(?:[1-9][0-9]?|100))\\b");
+
+
+        Tooltip.install(
+                textFieldInclinationValue,
+                new Tooltip("A inclinação deve ser um valor entre 0 e 20.")
+        );
+
+        Tooltip.install(
+                textFieldPowerLossValue,
+                new Tooltip("A perda de potência deve ser um valor entre 0 e 100.")
+        );
+
+        Tooltip.install(
+                comboExperimentCarModel,
+                new Tooltip("Escolha um modelo de carro para prosseguir com a simulação.")
+        );
 
         //Car models ComboBox:
         comboExperimentCarModel.setPromptText("Escolha um modelo...");
