@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -108,6 +109,26 @@ public class Controller {
     private ImageView ST_SimulationBulbConfigurationImg;
 
     @FXML
+    private TableView tableViewSimulation;
+
+    @FXML
+    private TableColumn tableViewSimulationID;
+
+    @FXML
+    private TableColumn tableViewSimulationDate;
+
+    @FXML
+    private TableColumn tableViewSimulationCarModel;
+
+    @FXML
+    private TableColumn tableViewSimulationInclination;
+
+    @FXML
+    private TableColumn tableViewSimulationPowerLoss;
+
+
+
+    @FXML
     public void initialize() {
         ST_SimulationTensionChart.getXAxis().setLabel("Segundos (s)");
         ST_SimulationTensionChart.getYAxis().setLabel("Corrente (A)");
@@ -137,6 +158,25 @@ public class Controller {
                 comboExperimentCarModel,
                 new Tooltip("Escolha um modelo de carro para prosseguir com a simulação.")
         );
+
+        //List from Simulation List
+        tableViewSimulationID.setCellValueFactory(new PropertyValueFactory<Simulation, Integer>("id"));
+        tableViewSimulationDate.setCellValueFactory(new PropertyValueFactory<Simulation, Date>("date"));
+        tableViewSimulationCarModel.setCellValueFactory(new PropertyValueFactory<Simulation, Integer>("fk_car_id"));
+        tableViewSimulationInclination.setCellValueFactory(new PropertyValueFactory<Simulation, Double>("inclination"));
+        tableViewSimulationPowerLoss.setCellValueFactory(new PropertyValueFactory<Simulation, Double>("powerLoss"));
+
+        List<Simulation> simulationList = simulationDAO.get();
+        ArrayList<Simulation> simuList = new ArrayList<>();
+        ObservableList<Simulation> list2 = null;
+        list2 = FXCollections.observableArrayList();
+        tableViewSimulation.setItems(list2);
+        for (Simulation simulation : simulationList) {
+            simuList.add(simulation);
+            list2.add(simulation);
+        }
+
+
 
         //Car models ComboBox:
         comboExperimentCarModel.setPromptText("Escolha um modelo...");
@@ -262,6 +302,8 @@ public class Controller {
                 }
             }
         });
+
+
 
         //cancel button
         ST_CancelSimulationButton.setOnAction(new EventHandler<ActionEvent>() {

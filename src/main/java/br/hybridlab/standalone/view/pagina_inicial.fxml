@@ -225,7 +225,7 @@
                                                 <Font name="System Bold" size="24.0" />
                                             </font>
                                         </Label>
-                                        <TableView layoutX="94.0" layoutY="69.0" prefHeight="472.0" prefWidth="943.0">
+                                        <TableView fx:id="tableViewSimulation" layoutX="94.0" layoutY="69.0" prefHeight="472.0" prefWidth="943.0">
                                             <columns>
                                                 <TableColumn id="tableViewSimulationID" fx:id="tableViewSimulationID" prefWidth="121.0" text="ID Simuação" />
                                                 <TableColumn id="tableViewSimulationDate" fx:id="tableViewSimulationDate" prefWidth="206.0" text="Data / Hora" />
