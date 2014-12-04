@@ -105,6 +105,7 @@ public class Controller {
 
     @FXML
     public void initialize() {
+
         //Car models ComboBox:
         comboExperimentCarModel.setPromptText("Escolha um modelo...");
         List<Car> carList = carDAO.get();
@@ -121,10 +122,10 @@ public class Controller {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (oldValue != newValue) {
                     selectedCar = carDAO.getByModel(newValue);
-                    txValueMass.setText("" + selectedCar.getMass());
-                    txValuePower.setText("" + selectedCar.getPower());
+                    txValueMass.setText("" + selectedCar.getMass()+" Kg");
+                    txValuePower.setText("" + selectedCar.getPower()+" Kw");
                     txValueDragCoefficient.setText(""+selectedCar.getDragCoefficient());
-                    txValueFrontalArea.setText("" + selectedCar.getFrontalArea());
+                    txValueFrontalArea.setText("" + selectedCar.getFrontalArea()+" m²");
                 }
             }
         });
@@ -158,6 +159,7 @@ public class Controller {
                     String numberLamps;
                     if (selectedCar != null) {
                         simulation.setCar(selectedCar);
+
                     } else {
                         throw new Exception();
                     }
@@ -165,25 +167,20 @@ public class Controller {
                         throw new Exception();
 
                     } else if (!textFieldPowerLossValue.isDisabled()){
-                        DecimalFormat format = new DecimalFormat("0.00");
-                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText())/100);
+                        simulation.setPowerLoss(Double.parseDouble(textFieldPowerLossValue.getText()));
                         // teta=asind(((pot*potencia/velocidade-0.5*densidade_ar*velocidade*velocidade*coeficiente_aerodinamico*area_frontal)/(massa*gravidade)));
-                        simulation.setInclination(Double.parseDouble(format.format(((Math.asin(((simulation.getPowerLoss()
-                                * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))*180)/Math.PI))));
+                        simulation.setInclination(((Math.asin((((simulation.getPowerLoss()/100)
+                                * selectedCar.getPower() / speed - 0.5 * airDensity * speed * speed * selectedCar.getDragCoefficient() * selectedCar.getFrontalArea()) / (selectedCar.getMass() * gravity)))*180)/Math.PI));
                         numberLamps = LampsChoice(simulation);
-                        simulation.setPowerLoss(simulation.getPowerLoss()*100);
                         Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);
 
                     } else {
-                        DecimalFormat format = new DecimalFormat("0.00");
                         //pot=(massa*gravidade*sind(teta) + 0.5*densidade_ar*velocidade*velocidade*coeficiente_aerodinamico*area_frontal)*velocidade/potencia;
-                        simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText())/100);
-                        simulation.setPowerLoss(Double.parseDouble(format.format(((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText())
-                                *Math.PI/180) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower()))));
+                        simulation.setInclination(Double.parseDouble(textFieldInclinationValue.getText()));
+                        simulation.setPowerLoss(((selectedCar.getMass()*gravity*Math.sin(Double.parseDouble(textFieldInclinationValue.getText())
+                                *Math.PI/180) + 0.5*airDensity*speed*speed*selectedCar.getDragCoefficient()*selectedCar.getFrontalArea())*speed/selectedCar.getPower())*100);
                         numberLamps = LampsChoice(simulation);
-                        simulation.setPowerLoss(simulation.getPowerLoss()*100);
-                        simulation.setInclination(simulation.getInclination()*100);
                         Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
                         ST_SimulationBulbConfigurationImg.setImage(img);
                     }
@@ -219,12 +216,12 @@ public class Controller {
             public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
                 if (newValue.getText().equals("Simulação") && simulation != null) {
                     ST_SImulationCarModelValue.setText("" + selectedCar.getModel());
-                    ST_SImulationMassValue.setText("" + selectedCar.getMass());
-                    ST_SImulationFrontalAreaValue.setText("" + selectedCar.getFrontalArea());
+                    ST_SImulationMassValue.setText("" + selectedCar.getMass()+" Kg");
+                    ST_SImulationFrontalAreaValue.setText("" + selectedCar.getFrontalArea()+" m²");
                     ST_SImulationDragCoefficientValue.setText("" + selectedCar.getDragCoefficient());
-                    ST_SImulationPowerValue.setText("" + selectedCar.getPower());
-                    ST_SImulationPowerLossValue.setText("" + simulation.getPowerLoss());
-                    ST_SimulationInclinationValue.setText("" + simulation.getInclination());
+                    ST_SImulationPowerValue.setText("" + selectedCar.getPower()+" Kw");
+                    ST_SImulationPowerLossValue.setText(new DecimalFormat("##.##").format(simulation.getPowerLoss())+"%");
+                    ST_SimulationInclinationValue.setText(new DecimalFormat("##.##").format(simulation.getInclination())+"º");
 
                 }
             }
@@ -245,27 +242,27 @@ public class Controller {
 
     private String LampsChoice(Simulation simulation) {
         String number = null;
-        if(simulation.getPowerLoss() < 0.05)
+        if(simulation.getPowerLoss() < 5)
             number = "00";
-        if(simulation.getPowerLoss() >= 0.05 && simulation.getPowerLoss() < 0.15)
+        if(simulation.getPowerLoss() >= 5 && simulation.getPowerLoss() < 15)
             number = "10";
-        if(simulation.getPowerLoss() >= 0.15 && simulation.getPowerLoss() < 0.25)
+        if(simulation.getPowerLoss() >= 15 && simulation.getPowerLoss() < 25)
             number = "20";
-        if(simulation.getPowerLoss() >= 0.25 && simulation.getPowerLoss() < 0.35)
+        if(simulation.getPowerLoss() >= 25 && simulation.getPowerLoss() < 35)
             number = "30";
-        if(simulation.getPowerLoss() >= 0.35 && simulation.getPowerLoss() < 0.45)
+        if(simulation.getPowerLoss() >= 35 && simulation.getPowerLoss() < 45)
             number = "40";
-        if(simulation.getPowerLoss() >= 0.45 && simulation.getPowerLoss() < 0.55)
+        if(simulation.getPowerLoss() >= 45 && simulation.getPowerLoss() < 55)
             number = "50";
-        if(simulation.getPowerLoss() >= 0.55 && simulation.getPowerLoss() < 0.65)
+        if(simulation.getPowerLoss() >= 55 && simulation.getPowerLoss() < 65)
             number = "60";
-        if(simulation.getPowerLoss() >= 0.65 && simulation.getPowerLoss() < 0.75)
+        if(simulation.getPowerLoss() >= 65 && simulation.getPowerLoss() < 75)
             number = "70";
-        if(simulation.getPowerLoss() >= 0.75 && simulation.getPowerLoss() < 0.85)
+        if(simulation.getPowerLoss() >= 75 && simulation.getPowerLoss() < 85)
             number = "80";
-        if(simulation.getPowerLoss() >= 0.85 && simulation.getPowerLoss() < 0.95)
+        if(simulation.getPowerLoss() >= 85 && simulation.getPowerLoss() < 95)
             number = "90";
-        if(simulation.getPowerLoss() >= 0.95)
+        if(simulation.getPowerLoss() >= 95)
             number = "100";
 
         return number;
