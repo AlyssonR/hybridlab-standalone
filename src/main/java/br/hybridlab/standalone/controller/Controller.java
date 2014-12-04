@@ -2,6 +2,8 @@ package br.hybridlab.standalone.controller;
 
 import br.hybridlab.standalone.ChartService;
 import br.hybridlab.standalone.dao.CarDAO;
+import br.hybridlab.standalone.dao.ConsumptionDAO;
+import br.hybridlab.standalone.dao.CurrentDAO;
 import br.hybridlab.standalone.dao.SimulationDAO;
 import br.hybridlab.standalone.model.Car;
 import br.hybridlab.standalone.model.Simulation;
@@ -32,6 +34,8 @@ public class Controller {
     private Simulation simulation;
     private ChartService chartService;
     private ChartService chartServiceT;
+    private ConsumptionDAO consumptionDAO;
+    private CurrentDAO currentDAO;
 
     private Double gravity = 9.8;
     private Double airDensity = 1.23;
@@ -186,17 +190,19 @@ public class Controller {
                     }
 
                 } catch (Exception e) { //TODO: create custom Exception
+                    e.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Formulario Incompleto", JOptionPane.ERROR_MESSAGE);
                     formHasErrors = true;
                 }
 
                 simulation.setDate(new Date());
                 simulationDAO.save(simulation);
-
-                chartService = new ChartService(ST_SimulationConsumptionChart);
+                consumptionDAO = new ConsumptionDAO();
+                currentDAO = new CurrentDAO();
+                chartService = new ChartService(ST_SimulationConsumptionChart, "consumption", consumptionDAO, currentDAO, simulation);
                 chartService.init();
 
-                chartServiceT = new ChartService(ST_SimulationTensionChart);
+                chartServiceT = new ChartService(ST_SimulationTensionChart, "current", consumptionDAO, currentDAO, simulation);
                 chartServiceT.init();
 
                 //Locking tab

@@ -40,7 +40,8 @@ public class CommunicationService implements SerialPortEventListener {
     /** Default bits per second for COM port. */
     private static final int DATA_RATE = 9600;
 
-    private Double readValues;
+    private Double consumption;
+    private Double current;
 
     private CommunicationService() {}
 
@@ -114,9 +115,11 @@ public class CommunicationService implements SerialPortEventListener {
     public void serialEvent(SerialPortEvent oEvent) {
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
-                String inputLine=input.readLine();
+                String inputLine = input.readLine();
                 System.out.println(inputLine);
-                readValues = new Double(inputLine);
+                String[] data = inputLine.split("[:|&]");
+                consumption = new Double(data[3]);
+                    current = new Double(data[1]);
             } catch (Exception e) {
                 System.err.println(e.toString());
             }
@@ -128,8 +131,11 @@ public class CommunicationService implements SerialPortEventListener {
         return input;
     }
 
-    public Double getReadValues() {
-        return readValues;
+    public Double getConsumption() {
+        return consumption;
     }
 
+    public Double getCurrent() {
+        return current;
+    }
 }

@@ -1,5 +1,10 @@
 package br.hybridlab.standalone;
 
+import br.hybridlab.standalone.dao.ConsumptionDAO;
+import br.hybridlab.standalone.dao.CurrentDAO;
+import br.hybridlab.standalone.model.Consumption;
+import br.hybridlab.standalone.model.Current;
+import br.hybridlab.standalone.model.Simulation;
 import javafx.animation.AnimationTimer;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -14,6 +19,10 @@ import java.util.concurrent.Executors;
  */
 public class ChartService {
 
+    private String title;
+    private ConsumptionDAO consumptionDAO;
+    private CurrentDAO currentDAO;
+    private Simulation simulation;
     private CommunicationService commService;
 
     private LineChart<Number,Number> chart;
@@ -27,8 +36,13 @@ public class ChartService {
 //    private Timeline timeline2;
     private NumberAxis xAxis;
 
-    public ChartService(LineChart<Number,Number> chart) {
+    public ChartService(LineChart<Number,Number> chart, String title, ConsumptionDAO consumptionDAO,
+                        CurrentDAO currentDAO, Simulation simulation) {
         this.chart = chart;
+        this.title = title;
+        this.currentDAO = currentDAO;
+        this.consumptionDAO = consumptionDAO;
+        this.simulation = simulation;
     }
 
 
@@ -39,7 +53,6 @@ public class ChartService {
         xAxis.setAutoRanging(false);
         chart.getYAxis().setAutoRanging(true);
         chart.setAnimated(false);
-//        chart.setTitle("combustível x tempo");
         series = new LineChart.Series<Number, Number>();
         series.setName("Line Chart Series");
         chart.getData().add(series);
@@ -59,7 +72,14 @@ public class ChartService {
         public void run() {
             try {
                 // add a item of random data to queue
-                Double temp =  commService.getReadValues();
+                Double temp = null;
+                if (title.equals("consumption")) {
+                    temp = commService.getConsumption();
+                    consumptionDAO.save(new Consumption(simulation, temp, null));
+                } else if (title.equals("current")) {
+                    temp = commService.getCurrent();
+                    currentDAO.save(new Current(simulation, temp, null));
+                }
                 dataQ.add(temp);
                 Thread.sleep(500);
                 executor.execute(this);

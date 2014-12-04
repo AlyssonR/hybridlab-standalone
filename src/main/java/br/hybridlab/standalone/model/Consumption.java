@@ -24,8 +24,7 @@ public class Consumption {
 
     public Consumption() {}
 
-    public Consumption(Integer id, Simulation simulation, Double value, Integer time) {
-        this.id = id;
+    public Consumption(Simulation simulation, Double value, Integer time) {
         this.simulation = simulation;
         this.value = value;
         this.time = time;
