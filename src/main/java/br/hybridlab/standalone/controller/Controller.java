@@ -1,5 +1,6 @@
 package br.hybridlab.standalone.controller;
 
+import br.hybridlab.standalone.BulbsPopUp;
 import br.hybridlab.standalone.ChartService;
 import br.hybridlab.standalone.dao.CarDAO;
 import br.hybridlab.standalone.dao.ConsumptionDAO;
@@ -15,6 +16,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import java.text.*;
+
+import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,6 +25,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+
 import javax.swing.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -43,6 +48,9 @@ public class Controller {
     private Double airDensity = 1.23;
     private Double speed = 22.2;
     private String numberLamps;
+
+    @FXML
+    Parent root;
 
     @FXML
     private ComboBox<String> comboExperimentCarModel;
@@ -312,18 +320,21 @@ public class Controller {
                     formHasErrors = true;
                 }
 
-                simulation.setDate(new Date());
-                simulationDAO.save(simulation);
-                consumptionDAO = new ConsumptionDAO();
-                currentDAO = new CurrentDAO();
-                chartService = new ChartService(ST_SimulationConsumptionChart, "consumption", consumptionDAO, currentDAO, simulation);
-                chartService.init();
-
-                chartServiceT = new ChartService(ST_SimulationTensionChart, "current", consumptionDAO, currentDAO, simulation);
-                chartServiceT.init();
-
-                //Locking tab
+                //Locking tabs and showing the bulbs setting
                 if (!formHasErrors) {
+                    try {
+                        new BulbsPopUp().start(new Stage());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    simulation.setDate(new Date());
+                    simulationDAO.save(simulation);
+                    consumptionDAO = new ConsumptionDAO();
+                    currentDAO = new CurrentDAO();
+                    chartService = new ChartService(ST_SimulationConsumptionChart, "consumption", consumptionDAO, currentDAO, simulation);
+                    chartService.init();
+                    chartServiceT = new ChartService(ST_SimulationTensionChart, "current", consumptionDAO, currentDAO, simulation);
+                    chartServiceT.init();
                     selectionModel = tabPane.getSelectionModel();
                     selectionModel.select(1);
                     ObservableList<Tab> tabs = tabPane.getTabs();
