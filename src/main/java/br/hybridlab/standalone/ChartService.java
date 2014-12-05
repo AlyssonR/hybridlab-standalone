@@ -68,6 +68,7 @@ public class ChartService {
         prepareTimeline();
     }
 
+    Integer time = 0;
     private class AddToQueue implements Runnable {
         public void run() {
             try {
@@ -75,13 +76,14 @@ public class ChartService {
                 Double temp = null;
                 if (title.equals("consumption")) {
                     temp = commService.getConsumption();
-                    consumptionDAO.save(new Consumption(simulation, temp, null));
+                    consumptionDAO.save(new Consumption(simulation, temp, time));
                 } else if (title.equals("current")) {
                     temp = commService.getCurrent();
-                    currentDAO.save(new Current(simulation, temp, null));
+                    currentDAO.save(new Current(simulation, temp, time));
                 }
+                time++;
                 dataQ.add(temp);
-                Thread.sleep(500);
+                Thread.sleep(1000);
                 executor.execute(this);
             } catch (InterruptedException ex) {
                 //TODO:deal with it;
