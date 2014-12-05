@@ -20,7 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-
+import javafx.scene.control.TableView;
 import javax.swing.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -126,7 +126,9 @@ public class Controller {
     @FXML
     private TableColumn tableViewSimulationPowerLoss;
 
-
+    private ArrayList<Simulation> simuList;
+    private List<Simulation> simulationList;
+    private ObservableList<Simulation> list2;
 
     @FXML
     public void initialize() {
@@ -166,16 +168,26 @@ public class Controller {
         tableViewSimulationInclination.setCellValueFactory(new PropertyValueFactory<Simulation, Double>("inclination"));
         tableViewSimulationPowerLoss.setCellValueFactory(new PropertyValueFactory<Simulation, Double>("powerLoss"));
 
-        List<Simulation> simulationList = simulationDAO.get();
-        ArrayList<Simulation> simuList = new ArrayList<>();
-        ObservableList<Simulation> list2 = null;
-        list2 = FXCollections.observableArrayList();
-        tableViewSimulation.setItems(list2);
-        for (Simulation simulation : simulationList) {
-            simuList.add(simulation);
-            list2.add(simulation);
-        }
+        simulationList = simulationDAO.get();
+        simuList = new ArrayList<>();
 
+
+
+        tabPane.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Tab>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
+                        simulationList = simulationDAO.get();
+                        list2 = null;
+                        list2 = FXCollections.observableArrayList();
+                        tableViewSimulation.setItems(list2);
+                        for (Simulation simulation : simulationList) {
+                            simuList.add(simulation);
+                            list2.add(simulation);
+                        }
+                    }
+                }
+        );
 
 
         //Car models ComboBox:
