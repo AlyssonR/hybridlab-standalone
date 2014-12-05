@@ -129,9 +129,14 @@ public class Controller {
     private ArrayList<Simulation> simuList;
     private List<Simulation> simulationList;
     private ObservableList<Simulation> list2;
+    private ObservableList<Tab> tabs;
+    private SelectionModel<Tab> selectionModel;
 
     @FXML
     public void initialize() {
+
+        tabs = tabPane.getTabs();
+
         ST_SimulationTensionChart.getXAxis().setLabel("Segundos (s)");
         ST_SimulationTensionChart.getYAxis().setLabel("Corrente (A)");
 
@@ -185,9 +190,26 @@ public class Controller {
                             simuList.add(simulation);
                             list2.add(simulation);
                         }
+                        tableViewSimulation.setEditable(false);
+                        tableViewSimulation.setRowFactory( tv -> {
+                            TableRow<Simulation> row = new TableRow<>();
+                            row.setOnMouseClicked(event -> {
+                                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                                    Simulation rowData = row.getItem();
+                                    System.out.println(rowData.getId());
+
+                                    showPastSimulation(rowData);
+                                }
+                            });
+                            return row ;
+                        });
+
                     }
                 }
         );
+
+
+
 
 
         //Car models ComboBox:
@@ -289,7 +311,7 @@ public class Controller {
 
                 //Locking tab
                 if (!formHasErrors) {
-                    SelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+                    selectionModel = tabPane.getSelectionModel();
                     selectionModel.select(1);
                     ObservableList<Tab> tabs = tabPane.getTabs();
                     tabs.get(0).setDisable(true);
@@ -321,7 +343,7 @@ public class Controller {
         ST_CancelSimulationButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ObservableList<Tab> tabs = tabPane.getTabs();
+
                 tabs.get(0).setDisable(false);
                 tabs.get(2).setDisable(false);
                 tabPane.getSelectionModel().select(0);
@@ -330,6 +352,22 @@ public class Controller {
 
     }
 
+
+//Show selected past Simulation
+    private void showPastSimulation(Simulation pastSimulation){
+        selectionModel = tabPane.getSelectionModel();
+        selectionModel.select(1);
+        System.out.println("ddddd"+pastSimulation.getId());
+        ST_SImulationCarModelValue.setText("" + pastSimulation.getCar().getModel());
+        ST_SImulationMassValue.setText("" + pastSimulation.getCar().getMass()+" Kg");
+        ST_SImulationFrontalAreaValue.setText("" + pastSimulation.getCar().getFrontalArea()+" m²");
+        ST_SImulationDragCoefficientValue.setText("" + pastSimulation.getCar().getDragCoefficient());
+        ST_SImulationPowerValue.setText("" + pastSimulation.getCar().getPower()+" Kw");
+        ST_SImulationPowerLossValue.setText(new DecimalFormat("##.##").format(pastSimulation.getPowerLoss())+"%");
+        ST_SimulationInclinationValue.setText(new DecimalFormat("##.##").format(pastSimulation.getInclination())+"º");
+
+        //implementar grafico
+    }
     private String LampsChoice(Simulation simulation) {
         String number = null;
         if(simulation.getPowerLoss() < 5)

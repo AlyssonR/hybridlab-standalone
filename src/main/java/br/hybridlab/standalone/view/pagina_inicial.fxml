@@ -200,12 +200,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Button id="ST_SaveSimulationButton" fx:id="ST_SaveSimulationButton" layoutX="903.0" layoutY="570.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Salvar Simulação">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Button>
-                                    <Button id="ST_CancelSimulationButton" fx:id="ST_CancelSimulationButton" layoutX="662.0" layoutY="570.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Cancelar">
+                                    <Button id="ST_CancelSimulationButton" fx:id="ST_CancelSimulationButton" layoutX="903.0" layoutY="570.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Cancelar">
                                        <font>
                                           <Font name="System Bold" size="17.0" />
                                        </font>
