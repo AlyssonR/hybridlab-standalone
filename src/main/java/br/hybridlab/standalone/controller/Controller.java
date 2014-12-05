@@ -323,7 +323,7 @@ public class Controller {
                 //Locking tabs and showing the bulbs setting
                 if (!formHasErrors) {
                     try {
-                        new BulbsPopUp().start(new Stage());
+                        new BulbsPopUp(numberLamps).start(new Stage());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
