@@ -1,6 +1,7 @@
 package br.hybridlab.standalone.controller;
 
 import br.hybridlab.standalone.BulbsPopUp;
+import br.hybridlab.standalone.ChartPopUp;
 import br.hybridlab.standalone.ChartService;
 import br.hybridlab.standalone.dao.CarDAO;
 import br.hybridlab.standalone.dao.ConsumptionDAO;
@@ -215,8 +216,6 @@ public class Controller {
                             row.setOnMouseClicked(event -> {
                                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                                     Simulation rowData = row.getItem();
-                                    System.out.println(rowData.getId());
-
                                     showPastSimulation(rowData);
                                 }
                             });
@@ -411,6 +410,12 @@ public class Controller {
         ST_SimulationDate.setText("Data da Simulação: "+dateFormat.format(pastSimulation.getDate())+ " às "+timeFormat.format(pastSimulation.getDate()));
 
         //implementar grafico
+
+        try {
+            new ChartPopUp().start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     private String LampsChoice(Simulation simulation) {
         String number = null;
@@ -437,6 +442,7 @@ public class Controller {
         if(simulation.getPowerLoss() >= 95)
             number = "100";
 
+        simulation.setBulbconfiguration(Integer.parseInt(number)/10);
         return number;
     }
 

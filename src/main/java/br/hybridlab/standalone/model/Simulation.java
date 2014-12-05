@@ -27,6 +27,16 @@ public class Simulation {
     @Column(columnDefinition = "decimal(8,2)")
     private Double powerLoss;
 
+    public Integer getBulbconfiguration() {
+        return bulbconfiguration;
+    }
+
+    public void setBulbconfiguration(Integer bulbconfiguration) {
+        this.bulbconfiguration = bulbconfiguration;
+    }
+
+    private Integer bulbconfiguration;
+
     public Simulation(){
 
     }

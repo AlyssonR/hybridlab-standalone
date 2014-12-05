@@ -79,6 +79,9 @@ public class ChartService {
                     consumptionDAO.save(new Consumption(simulation, temp, time));
                 } else if (title.equals("current")) {
                     temp = commService.getCurrent();
+                    System.out.println(temp);
+                    temp = temp*simulation.getBulbconfiguration();
+                    System.out.println(temp);
                     currentDAO.save(new Current(simulation, temp, time));
                 }
                 time++;
