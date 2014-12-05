@@ -10,6 +10,7 @@
 <?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+
 <?import br.hybridlab.standalone.controller.AttributeTextField?>
 
 <VBox prefHeight="796.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.hybridlab.standalone.controller.Controller">
@@ -132,33 +133,33 @@
                                           <Font name="System Bold" size="24.0" />
                                        </font>
                                     </Label>
-                                    <Text id="ST_SImulationCarModel" fx:id="ST_SImulationCarModel" layoutX="207.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="142.48681640625">
+                                    <Text id="ST_SImulationCarModel" fx:id="ST_SImulationCarModel" layoutX="207.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Modelo do Carro:" wrappingWidth="142.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
 
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="207.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="270.0" />
-                                     <Text id="ST_SimulationDate" fx:id="ST_SimulationDate" layoutX="207.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="" wrappingWidth="500"/>
-                                    <Text id="ST_SImulationLabelMass" fx:id="ST_SImulationLabelMass" layoutX="215.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
-                                    <Text id="ST_SImulationPowerLabel" fx:id="ST_SImulationPowerLabel" layoutX="214.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
-                                    <Text id="ST_SImulationDragCoefficientLabel" fx:id="ST_SImulationDragCoefficientLabel" layoutX="213.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
-                                    <Text id="ST_SImulationMassValue" fx:id="ST_SImulationMassValue" layoutX="273.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="202.7294921875" />
-                                    <Text id="ST_SImulationPowerValue" fx:id="ST_SImulationPowerValue" layoutX="282.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="194.7294921875" />
-                                    <Text id="ST_SImulationDragCoefficientValue" fx:id="ST_SImulationDragCoefficientValue" layoutX="390.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="86.7294921875" />
-                                    <Text id="ST_SImulationFrontalAreaLabel" fx:id="ST_SImulationFrontalAreaLabel" layoutX="213.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
-                                    <Text id="ST_SImulationFrontalAreaValue" fx:id="ST_SImulationFrontalAreaValue" layoutX="301.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="128.7294921875" />
-                                    <Text id="ST_SImulationInclinationLabel" fx:id="ST_SImulationInclinationLabel" layoutX="511.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Angulação (º):" wrappingWidth="119.48681640625">
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="207.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="270.0" />
+                                     <Text id="ST_SimulationDate" fx:id="ST_SimulationDate" layoutX="207.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="" wrappingWidth="500" />
+                                    <Text id="ST_SImulationLabelMass" fx:id="ST_SImulationLabelMass" layoutX="215.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
+                                    <Text id="ST_SImulationPowerLabel" fx:id="ST_SImulationPowerLabel" layoutX="214.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
+                                    <Text id="ST_SImulationDragCoefficientLabel" fx:id="ST_SImulationDragCoefficientLabel" layoutX="213.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />
+                                    <Text id="ST_SImulationMassValue" fx:id="ST_SImulationMassValue" layoutX="273.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="202.7294921875" />
+                                    <Text id="ST_SImulationPowerValue" fx:id="ST_SImulationPowerValue" layoutX="282.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="194.7294921875" />
+                                    <Text id="ST_SImulationDragCoefficientValue" fx:id="ST_SImulationDragCoefficientValue" layoutX="390.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="86.7294921875" />
+                                    <Text id="ST_SImulationFrontalAreaLabel" fx:id="ST_SImulationFrontalAreaLabel" layoutX="213.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área frontal:" wrappingWidth="89.7294921875" />
+                                    <Text id="ST_SImulationFrontalAreaValue" fx:id="ST_SImulationFrontalAreaValue" layoutX="301.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..." wrappingWidth="128.7294921875" />
+                                    <Text id="ST_SImulationInclinationLabel" fx:id="ST_SImulationInclinationLabel" layoutX="511.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Angulação (º):" wrappingWidth="119.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Text id="ST_SImulationPowerLossLabel" fx:id="ST_SImulationPowerLossLabel" layoutX="765.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Perda de Potencia (%):" wrappingWidth="188.48681640625">
+                                    <Text id="ST_SImulationPowerLossLabel" fx:id="ST_SImulationPowerLossLabel" layoutX="765.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Perda de Potencia (%):" wrappingWidth="188.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <LineChart fx:id="ST_SimulationConsumptionChart" layoutX="167.0" layoutY="298.0" prefHeight="262.0" prefWidth="391.0">
+                                    <LineChart fx:id="ST_SimulationConsumptionChart" layoutX="167.0" layoutY="249.0" prefHeight="262.0" prefWidth="391.0">
                                       <xAxis>
                                         <NumberAxis side="BOTTOM" />
                                       </xAxis>
@@ -166,7 +167,7 @@
                                         <NumberAxis side="LEFT" />
                                       </yAxis>
                                     </LineChart>
-                                    <LineChart fx:id="ST_SimulationTensionChart" layoutX="599.0" layoutY="298.0" prefHeight="262.0" prefWidth="391.0">
+                                    <LineChart fx:id="ST_SimulationTensionChart" layoutX="599.0" layoutY="249.0" prefHeight="262.0" prefWidth="391.0">
                                        <xAxis>
                                           <NumberAxis side="BOTTOM" />
                                        </xAxis>
@@ -174,12 +175,12 @@
                                           <NumberAxis side="LEFT" />
                                        </yAxis>
                                     </LineChart>
-                                    <Text id="labelExperimentCarModel" layoutX="306.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Consumo X Tempo" wrappingWidth="166.48681640625">
+                                    <Text id="labelExperimentCarModel" layoutX="306.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Consumo X Tempo" wrappingWidth="166.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Text id="labelExperimentCarModel" layoutX="761.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Corrente X Tempo" wrappingWidth="164.48681640625">
+                                    <Text id="labelExperimentCarModel" layoutX="761.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Corrente X Tempo" wrappingWidth="164.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -187,22 +188,22 @@
                                     <ImageView id="ST_SimulationBulbConfigurationImg" fx:id="ST_SimulationBulbConfigurationImg" fitHeight="105.0" fitWidth="274.0" layoutX="594.0" layoutY="160.0">
 
                                     </ImageView>
-                                    <Text id="ST_SImulationCarModelValue" fx:id="ST_SImulationCarModelValue" layoutX="351.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
+                                    <Text id="ST_SImulationCarModelValue" fx:id="ST_SImulationCarModelValue" layoutX="351.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Text id="ST_SimulationInclinationValue" fx:id="ST_SimulationInclinationValue" layoutX="639.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
+                                    <Text id="ST_SimulationInclinationValue" fx:id="ST_SimulationInclinationValue" layoutX="639.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Text id="ST_SImulationPowerLossValue" fx:id="ST_SImulationPowerLossValue" layoutX="960.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
+                                    <Text id="ST_SImulationPowerLossValue" fx:id="ST_SImulationPowerLossValue" layoutX="960.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="..." wrappingWidth="121.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Button id="ST_CancelSimulationButton" fx:id="ST_CancelSimulationButton" layoutX="903.0" layoutY="570.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Cancelar">
+                                    <Button id="ST_CancelSimulationButton" fx:id="ST_CancelSimulationButton" layoutX="903.0" layoutY="497.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="228.0" text="Cancelar">
                                        <font>
                                           <Font name="System Bold" size="17.0" />
                                        </font>
