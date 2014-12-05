@@ -179,7 +179,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
-                                    <Text id="labelExperimentCarModel" layoutX="761.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Tensão X Tempo" wrappingWidth="164.48681640625">
+                                    <Text id="labelExperimentCarModel" layoutX="761.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="Corrente X Tempo" wrappingWidth="164.48681640625">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
