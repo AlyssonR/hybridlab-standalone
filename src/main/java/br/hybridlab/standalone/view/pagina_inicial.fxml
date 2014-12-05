@@ -41,7 +41,7 @@
                                                         <Font name="System Bold" size="17.0" />
                                                     </font>
                                                 </Button>
-                                                <Label id="labelValueSImulationID" layoutX="455.0" layoutY="67.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇÃO 001">
+                                                <Label id="labelValueSImulationID" fx:id="labelValueSImulationID" layoutX="455.0" layoutY="67.0" prefHeight="42.0" prefWidth="241.0" text="SIMULAÇÃO 001">
                                                     <font>
                                                         <Font name="System Bold" size="24.0" />
                                                     </font>
@@ -137,7 +137,9 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Text>
+
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="207.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.2" width="270.0" />
+                                     <Text id="ST_SimulationDate" fx:id="ST_SimulationDate" layoutX="207.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="labelTexto" text="" wrappingWidth="500"/>
                                     <Text id="ST_SImulationLabelMass" fx:id="ST_SImulationLabelMass" layoutX="215.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Massa:" wrappingWidth="49.7294921875" />
                                     <Text id="ST_SImulationPowerLabel" fx:id="ST_SImulationPowerLabel" layoutX="214.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potência:" wrappingWidth="65.7294921875" />
                                     <Text id="ST_SImulationDragCoefficientLabel" fx:id="ST_SImulationDragCoefficientLabel" layoutX="213.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coeficiente Aerodinâmico:" wrappingWidth="174.7294921875" />

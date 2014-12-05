@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import java.text.*;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -41,12 +42,19 @@ public class Controller {
     private Double gravity = 9.8;
     private Double airDensity = 1.23;
     private Double speed = 22.2;
+    private String numberLamps;
 
     @FXML
     private ComboBox<String> comboExperimentCarModel;
 
     @FXML
     private Text txValueMass;
+
+    @FXML
+    private Label labelValueSImulationID;
+
+    @FXML
+    private Label ST_SimulationIDValue;
 
     @FXML
     private Text txValuePower;
@@ -97,6 +105,9 @@ public class Controller {
     private Text ST_SimulationInclinationValue;
 
     @FXML
+    private Text ST_SimulationDate;
+
+    @FXML
     private TabPane tabPane;
 
     @FXML
@@ -143,6 +154,8 @@ public class Controller {
 
         ST_SimulationConsumptionChart.getXAxis().setLabel("Segundos (s)");
         ST_SimulationConsumptionChart.getYAxis().setLabel("Consumo por Segundo (l/s)");
+
+
 
 
         textFieldInclinationValue.setMaxLength(2);
@@ -211,7 +224,8 @@ public class Controller {
 
 
 
-
+        labelValueSImulationID.setText("SIMULAÇÃO "+(simulationList.size()+1));
+        ST_SimulationIDValue.setText("SIMULAÇÃO "+(simulationList.size()+1));
         //Car models ComboBox:
         comboExperimentCarModel.setPromptText("Escolha um modelo...");
         List<Car> carList = carDAO.get();
@@ -264,7 +278,6 @@ public class Controller {
                 //populating simulation field
                 try {
                     simulation = new Simulation();
-                    String numberLamps;
                     if (selectedCar != null) {
                         simulation.setCar(selectedCar);
 
@@ -347,6 +360,18 @@ public class Controller {
                 tabs.get(0).setDisable(false);
                 tabs.get(2).setDisable(false);
                 tabPane.getSelectionModel().select(0);
+                labelValueSImulationID.setText("SIMULAÇÃO "+(simulationList.size()+1));
+                ST_SimulationIDValue.setText("SIMULAÇÃO "+(simulationList.size()+1));
+                ST_SImulationCarModelValue.setText("");
+                ST_SImulationMassValue.setText("");
+                ST_SImulationFrontalAreaValue.setText("");
+                ST_SImulationDragCoefficientValue.setText("");
+                ST_SImulationPowerValue.setText("" );
+                ST_SImulationPowerLossValue.setText("");
+                ST_SimulationInclinationValue.setText("");
+                Image img = new Image(getClass().getResourceAsStream("/img/00PowerLoss.png"));
+                ST_SimulationBulbConfigurationImg.setImage(img);
+                ST_SimulationDate.setText("");
             }
         });
 
@@ -357,6 +382,7 @@ public class Controller {
     private void showPastSimulation(Simulation pastSimulation){
         selectionModel = tabPane.getSelectionModel();
         selectionModel.select(1);
+        ST_SimulationIDValue.setText("SIMULAÇÃO "+pastSimulation.getId());
         System.out.println("ddddd"+pastSimulation.getId());
         ST_SImulationCarModelValue.setText("" + pastSimulation.getCar().getModel());
         ST_SImulationMassValue.setText("" + pastSimulation.getCar().getMass()+" Kg");
@@ -365,6 +391,15 @@ public class Controller {
         ST_SImulationPowerValue.setText("" + pastSimulation.getCar().getPower()+" Kw");
         ST_SImulationPowerLossValue.setText(new DecimalFormat("##.##").format(pastSimulation.getPowerLoss())+"%");
         ST_SimulationInclinationValue.setText(new DecimalFormat("##.##").format(pastSimulation.getInclination())+"º");
+        numberLamps = LampsChoice(pastSimulation);
+        Image img = new Image(getClass().getResourceAsStream("/img/" + numberLamps + "PowerLoss.png"));
+        ST_SimulationBulbConfigurationImg.setImage(img);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");   //formato dia/mes/ano
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+
+        ST_SimulationDate.setText("Data da Simulação: "+dateFormat.format(pastSimulation.getDate())+ " às "+timeFormat.format(pastSimulation.getDate()));
 
         //implementar grafico
     }
