@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView id="bulbConfigurationImg" fx:id="bulbConfigurationImg" fitHeight="99.0" fitWidth="259.0" layoutX="81.0" layoutY="71.0">
+         <image>
+            <Image url="@img/100PowerLoss.png" />
+         </image>
+      </ImageView>
+      <Button id="continueButton" fx:id="continueButton" layoutX="141.0" layoutY="184.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="129.0" text="Continuar" />
+      <Text layoutX="55.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor, acenda" wrappingWidth="129.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="213.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ramos de lampadas, " wrappingWidth="160.8046875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="57.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="conforme imagem abaixo:" wrappingWidth="207.8046875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="txnumberOfBulbValue" fx:id="txnumberOfBulbValue" layoutX="187.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XX" wrappingWidth="23.8046875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
